@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro de Segurado</title>
+</head>
+<body>
+
+	<div th:replace="header"></div>
+	
+
+	<div class="container" id="content" tabindex="-1">
+
+
+		<form action="#" th:action="@{/segurado/buscar}"  th:object="${segurado}" method="get">
+
+			<div class="row">
+				<div class="col-md-4">
+
+					<div class="form-group">
+					<label for="" class="control-label">Selecionar busca</label> 
+						<select id ="select-busca" class="form-control" onchange="mostrarBuscas();">
+							<option value="">Selecione ... </option>
+							<option value="Nome">Segurado</option>
+							<option value="CPF">CPF</option>
+							<option value="Telefone">Telefone</option>
+							<option value="CEP">CEP</option>
+						</select>
+					</div>
+					<div class="form-group" id="consulta-segurado">
+						<label for="" class="control-label">Segurado</label> 
+						<input	type="text"    class="form-control" th:field="*{nome}" />
+					</div>
+
+					<div class="form-group" id="consulta-cpf">
+						<label for="" class="control-label">CPF</label> 
+						<input type="text"	class="form-control cpf" th:field="*{cpf}" />
+					</div>
+					<div class="form-group" id="consulta-telefone">
+						<label for="" class="control-label">Telefone</label> 
+						<input class="form-control telefone" type="text" th:field="*{telefone}" />
+					</div>
+
+					<div class="form-group" id="consulta-cep">
+						<label for="" class="control-label">CEP</label> 
+						<input type="text"	class="form-control cep" th:field="*{cep}" />
+					</div>
+				</div>
+			</div>
+
+			<br /> <br />
+			<div class="centralizar">
+				<button type="submit"  class="btn btn-success">Consultar</button>
+			</div>
+		</form>
+		<br />
+	<br />
+
+
+		<div class="modal fade" tabindex="-1" role="dialog" th:id="modal"  th:if="${detalhe ne null}">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Modal title</h4>
+			      </div>
+			      <div class="modal-body">
+			      <p><span th:text="${detalhe.cpf}" th:object="${segurado}"></span></p>
+			      <p><span th:text="${segurado.cpf}"></span></p>
+			     	<table>
+			     		<tr th:each="seg : ${segurado}">
+			     			<td><span th:text="${seg.nome}"></span></td>
+			     			<td><span th:text="${seg.cpf}"></span></td>
+			     		</tr>
+			     	</table> 
+			     </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+
+
+	
+	<!-- Button trigger modal -->
+
+	
+	<table class="table table-hover" id="tab-segurado" th:if="${listaSegurados ne null and not listaSegurados.empty}">
+
+		<tr>
+			<th>Nome</th>
+			<th>Cpf</th>
+			<th>Telefone</th>
+			<th>Cep</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr th:each="segurado : ${listaSegurados}">
+			<td><span th:text="${segurado.nome}"></span></td>
+			<td><span th:text="${segurado.cpf}"></span></td>
+			<td><span th:text="${segurado.telefone}"></span></td>
+			<td><span th:text="${segurado.cep}"></span></td>
+			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}">Atualizar</a></td>
+			<td><button onclick="#" th:onclick="'javascript:visualizar(\''+ ${segurado.id} +'\')'" >Visualizar</button></td>
+		</tr>
+	</table>
+
+		
+		
+
+	</div>
+
+
+</body>
+</html>

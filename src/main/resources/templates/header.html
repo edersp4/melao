@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro de Segurado</title>
+<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../estilo/estilo.css" rel="stylesheet" />
+
+<script src="../../js/jquery-3.1.1.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/segurado/segurado-script.js"></script>
+<script src="../../js/jquery-mask.js"></script>
+</head>
+<body>
+<header>
+	<nav class="navbar navbar-inverse ">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#" th:href="@{/segurado/cadastro-segurado}">Cadastro do Segurado</a></li>
+			<li><a href="#" th:href="@{/segurado/consulta-segurado}"> Lista de Segurados</a></li>
+			<li><a href="#">Consulta do Segurado</a></li>
+		</ul>
+	</nav>
+</header>
+</body>
+</html>
