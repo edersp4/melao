@@ -4,19 +4,18 @@ jQuery(document).ready(function() {
 	$('.cep').mask('00000-000');
 	$('.cpf').mask('000.000.000-00', {reverse: true});
 	$('.telefone').mask('(00) 0000-00000');
-	teste();
+	
 	
 });
 
 
-function sucesso(){
+function sucesso(retorno){
 	alert("sucesso");
+	mostrarSegurado();
 }
 
 function visualizar(id){
-	$.get("/segurado/detalhe-segurado?id=" + id,function(){
-		$('#modal').modal('show');
-	});
+	$.get("/segurado/detalhe-segurado?id=" + id,sucesso);
 }
 
 function mostrarSegurado(){

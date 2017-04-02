@@ -12,21 +12,12 @@
 	<div class="container" id="content" tabindex="-1">
 
 
-		<form action="#" th:action="@{/segurado/buscar}"  th:object="${segurado}" method="get">
+		<form action="#" th:action="@{/segurado/buscar}"  method="get">
 
-			<div class="row">
+			<div class="row"  th:object="${segurado}">
 				<div class="col-md-4">
 
-					<div class="form-group">
-					<label for="" class="control-label">Selecionar busca</label> 
-						<select id ="select-busca" class="form-control" onchange="mostrarBuscas();">
-							<option value="">Selecione ... </option>
-							<option value="Nome">Segurado</option>
-							<option value="CPF">CPF</option>
-							<option value="Telefone">Telefone</option>
-							<option value="CEP">CEP</option>
-						</select>
-					</div>
+					
 					<div class="form-group" id="consulta-segurado">
 						<label for="" class="control-label">Segurado</label> 
 						<input	type="text"    class="form-control" th:field="*{nome}" />
@@ -57,22 +48,17 @@
 	<br />
 
 
-		<div class="modal fade" tabindex="-1" role="dialog" th:id="modal"  th:if="${detalhe ne null}">
+		<div class="modal fade" tabindex="-1" role="dialog" th:id="modal">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title">Modal title</h4>
 			      </div>
-			      <div class="modal-body">
-			      <p><span th:text="${detalhe.cpf}" th:object="${segurado}"></span></p>
-			      <p><span th:text="${segurado.cpf}"></span></p>
-			     	<table>
-			     		<tr th:each="seg : ${segurado}">
-			     			<td><span th:text="${seg.nome}"></span></td>
-			     			<td><span th:text="${seg.cpf}"></span></td>
-			     		</tr>
-			     	</table> 
+			      <div class="modal-body" th:object="${detalhe}" th:if="${detalhe}!= null">
+			      <p><span th:text="${detalhe.cpf}"></span></p>
+			     <p><span th:text="${detalhe.cpf}"></span></p>
+			     	
 			     </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -104,7 +90,8 @@
 			<td><span th:text="${segurado.telefone}"></span></td>
 			<td><span th:text="${segurado.cep}"></span></td>
 			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}">Atualizar</a></td>
-			<td><button onclick="#" th:onclick="'javascript:visualizar(\''+ ${segurado.id} +'\')'" >Visualizar</button></td>
+			<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}">Detalhes</a></td>
+			
 		</tr>
 	</table>
 

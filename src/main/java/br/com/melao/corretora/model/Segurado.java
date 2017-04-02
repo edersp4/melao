@@ -1,11 +1,15 @@
 package br.com.melao.corretora.model;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -34,6 +38,9 @@ public class Segurado {
 	
 	@Email
 	private String email;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "segurado" )
+	private List<SeguroCarro>seguro;
 	
 	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
@@ -130,6 +137,14 @@ public class Segurado {
 	public String toString() {
 		return "Segurado [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", cep=" + cep
 				+ ", email=" + email + ", dataDeNascimento=" + dataDeNascimento + "]";
+	}
+
+	public List<SeguroCarro> getSeguro() {
+		return seguro;
+	}
+
+	public void setSeguro(List<SeguroCarro> seguro) {
+		this.seguro = seguro;
 	}
 	
 }

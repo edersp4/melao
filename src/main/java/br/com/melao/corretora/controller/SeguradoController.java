@@ -18,10 +18,7 @@ public class SeguradoController {
 	@Autowired
 	private SeguradoService seguradoService;
 	
-	@RequestMapping("/sucesso")
-	public String sucesso() {
-		return "sucesso";
-	}
+	
 	
 	@RequestMapping(value="/segurado/cadastro-segurado" , method=RequestMethod.GET)
 	public ModelAndView cadastroSegurado(Segurado segurado) {
@@ -62,11 +59,11 @@ public class SeguradoController {
 		return view;
 	}
 	
-	@RequestMapping(value="/segurado/detalhe-segurado" , method=RequestMethod.GET)
+	@RequestMapping(value="/segurado/visualizar" , method=RequestMethod.GET)
 	public ModelAndView detalheSegurado(Segurado segurado) {
-		ModelAndView view = new ModelAndView("segurado/consulta-segurado");
+		ModelAndView view = new ModelAndView("segurado/detalhe-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
-		view.addObject("detalhe",segurado);
+		view.addObject(segurado);
 		return view;
 	}
 	
