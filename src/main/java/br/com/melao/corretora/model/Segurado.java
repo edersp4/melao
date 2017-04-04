@@ -40,7 +40,7 @@ public class Segurado {
 	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "segurado" )
-	private List<SeguroCarro>seguro;
+	private List<ItemSeguroCarro>seguro;
 	
 	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
@@ -139,11 +139,11 @@ public class Segurado {
 				+ ", email=" + email + ", dataDeNascimento=" + dataDeNascimento + "]";
 	}
 
-	public List<SeguroCarro> getSeguro() {
+	public List<ItemSeguroCarro> getSeguro() {
 		return seguro;
 	}
 
-	public void setSeguro(List<SeguroCarro> seguro) {
+	public void setSeguro(List<ItemSeguroCarro> seguro) {
 		this.seguro = seguro;
 	}
 	

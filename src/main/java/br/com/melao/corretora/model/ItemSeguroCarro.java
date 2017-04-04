@@ -9,9 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class SeguroCarro {
+public class ItemSeguroCarro implements ItemSeguro{
 
-	public SeguroCarro() {
+	public ItemSeguroCarro() {
 		
 	}
 	

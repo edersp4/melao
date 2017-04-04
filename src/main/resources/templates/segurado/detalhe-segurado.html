@@ -66,9 +66,30 @@
 			<br />
 			<br />
 			<div class="centralizar">
-				<button type="submit" class="btn btn-success">Cadastrar</button>
+				<button type="submit" class="btn btn-success">Cadastrar Item de Seguro</button>
 			</div>
 		</form>
+		
+		<table class="table table-hover" id="tab-segurado" th:if="${listaSegurados ne null and not listaSegurados.empty}">
+
+		<tr>
+			<th>Modelo</th>
+			<th>Data de Fabricacao</th>
+			<th>Telefone</th>
+			<th>Placa</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr th:each="itemSeguro : ${listaItemSeguro}">
+			<td><span th:text="${itemSeguro.nome}"></span></td>
+			<td><span th:text="${itemSeguro.cpf}"></span></td>
+			<td><span th:text="${itemSeguro.telefone}"></span></td>
+			<td><span th:text="${itemSeguro.cep}"></span></td>
+			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}">Atualizar</a></td>
+			<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}">Detalhes</a></td>
+		</tr>
+		</table>
+		
 	</fieldset>
 
 	</div>
