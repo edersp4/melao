@@ -1,5 +1,7 @@
 package br.com.melao.corretora.model;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class ItemSeguroCarro implements ItemSeguro{
@@ -19,7 +23,9 @@ public class ItemSeguroCarro implements ItemSeguro{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String modelo;
-	private String dataFabricacao;
+	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private Calendar dataFabricacao;
 	private String placa;
 	private String chassi;
 	
@@ -39,12 +45,7 @@ public class ItemSeguroCarro implements ItemSeguro{
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String getDataFabricacao() {
-		return dataFabricacao;
-	}
-	public void setDataFabricacao(String dataFabricacao) {
-		this.dataFabricacao = dataFabricacao;
-	}
+	
 	public String getPlaca() {
 		return placa;
 	}
@@ -62,6 +63,12 @@ public class ItemSeguroCarro implements ItemSeguro{
 	}
 	public void setSegurado(Segurado segurado) {
 		this.segurado = segurado;
+	}
+	public Calendar getDataFabricacao() {
+		return dataFabricacao;
+	}
+	public void setDataFabricacao( Calendar dataFabricacao ) {
+		this.dataFabricacao = dataFabricacao;
 	}
 	
 	
