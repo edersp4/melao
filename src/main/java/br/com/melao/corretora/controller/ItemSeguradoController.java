@@ -10,8 +10,14 @@ import br.com.melao.corretora.model.ItemSeguroCarro;
 @Controller
 public class ItemSeguradoController {
 	
-	@RequestMapping(value="/item/cadastro-seguroCarro" , method=RequestMethod.GET)
-	public ModelAndView cadastro(ItemSeguroCarro itemSeguroCarro) {
+	@RequestMapping(value="/item/cadastro-seguroCarro")
+	public ModelAndView cadastro(ItemSeguroCarro itemSeguroCarro ) {
+		ModelAndView view = new ModelAndView("item/cadastro-seguroCarro");
+		return view;
+	}
+
+	@RequestMapping(value="/item/gravar" , method=RequestMethod.POST)
+	public ModelAndView gravar(ItemSeguroCarro itemSeguroCarro) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroCarro");
 		return view;
 	}

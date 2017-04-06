@@ -3,14 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro de Segurado</title>
-
-
 </head>
 <body>
-
-
 	<div th:replace="header"></div>
-	
 	
 	<div class="container" id="content" tabindex="-1">
 		<fieldset class="scheduler-border">
@@ -66,7 +61,7 @@
 			<br />
 			<br />
 			<div class="centralizar">
-				<button type="submit" class="btn btn-success">Cadastrar Item de Seguro</button>
+				<a href="#" th:href="@{/segurado/cadastrar-item}" class="btn btn-success">Cadastrar Item de Seguro</a>
 			</div>
 		</form>
 		

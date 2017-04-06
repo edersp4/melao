@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.melao.corretora.model.ItemSeguro;
+import br.com.melao.corretora.model.ItemSeguroCarro;
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.service.cadastro.SeguradoService;
 
@@ -66,6 +68,20 @@ public class SeguradoController {
 		view.addObject(segurado);
 		return view;
 	}
+	
+	@RequestMapping(value="/segurado/cadastrar-item")
+	public ModelAndView cadastrarItem(Segurado segurado){
+
+		ItemSeguroCarro item = new ItemSeguroCarro();
+		segurado.setId(new Long(1));
+		item.setSegurado(segurado);
+		item.setId(new Long(1));
+		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroCarro");
+		view.addObject(item);
+		return view;
+	}
+		
+	
 	
 	
 	
