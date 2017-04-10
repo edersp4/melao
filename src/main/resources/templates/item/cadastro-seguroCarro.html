@@ -10,6 +10,11 @@
 	<div th:replace="header"></div>
 	
 	<div class="container" id="content" tabindex="-1">
+		<fieldset class="scheduler-border">
+		<legend class="scheduler-border">Cadastro do Segurado</legend>
+		<br/>
+		<br/>
+		
 		<form action="#" th:action="@{/item/cadastro-seguroCarro}" th:object="${itemSeguroCarro}" method="post">
 			<div class="row">
 				<div class="col-md-6">
@@ -39,10 +44,13 @@
 			</div>
 			<br/>
 			<br/>
+			<hr/>
+			<br/>
 			<div class="centralizar">
 					<button type="submit" class="btn btn-success">Cadastrar</button>
 			</div>
 		</form>
+		</fieldset>
 	</div>
 </body>
 </html>

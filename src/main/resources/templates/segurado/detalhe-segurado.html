@@ -61,7 +61,8 @@
 			<br />
 			<br />
 			<div class="centralizar">
-				<a href="#" th:href="@{/segurado/cadastrar-item}" class="btn btn-success">Cadastrar Item de Seguro</a>
+				<input type="button" class="btn btn-default" onclick="voltar();" value="Voltar"></input>
+				<a href="#" th:href="@{/segurado/cadastrar-item(id=${segurado.id})}" class="btn btn-success">Cadastrar Item de Seguro</a>
 			</div>
 		</form>
 		

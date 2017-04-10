@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.melao.corretora.model.ItemSeguro;
 import br.com.melao.corretora.model.ItemSeguroCarro;
@@ -20,7 +21,11 @@ public class SeguradoController {
 	@Autowired
 	private SeguradoService seguradoService;
 	
-	
+	@RequestMapping(value="/sucesso")
+	public ModelAndView sucesso() {
+		ModelAndView view = new ModelAndView("/sucesso");
+		return view;
+	}
 	
 	@RequestMapping(value="/segurado/cadastro-segurado" , method=RequestMethod.GET)
 	public ModelAndView cadastroSegurado(Segurado segurado) {
@@ -33,7 +38,7 @@ public class SeguradoController {
 		if(result.hasErrors()) {
 			return cadastroSegurado(segurado);
 		}
-		ModelAndView view = new ModelAndView("sucesso");
+		ModelAndView view = new ModelAndView("redirect:/sucesso");
 		
 		seguradoService.gravarUsuarioOuAtualizar(segurado);
 		return view;
@@ -70,14 +75,12 @@ public class SeguradoController {
 	}
 	
 	@RequestMapping(value="/segurado/cadastrar-item")
-	public ModelAndView cadastrarItem(Segurado segurado){
-
+	public ModelAndView cadastrarItem(Segurado segurado, final RedirectAttributes redirectAttributes ){
 		ItemSeguroCarro item = new ItemSeguroCarro();
-		segurado.setId(new Long(1));
+		segurado = seguradoService.detalheSegurado(segurado.getId());
 		item.setSegurado(segurado);
-		item.setId(new Long(1));
 		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroCarro");
-		view.addObject(item);
+		redirectAttributes.addFlashAttribute(item);
 		return view;
 	}
 		
