@@ -11,7 +11,7 @@
 		<fieldset class="scheduler-border">
 		<legend class="scheduler-border">Informações do Segurado</legend>
 		<form action="#" th:action="@{/segurado/gravar}" th:object="${segurado}" method="post">
-
+		<input type="hidden" th:hidden="${segurado.id}" />
 		<div class="row" >
 			<div class="col-md-6"> 
 				<div class="form-group">
@@ -61,7 +61,7 @@
 			<br />
 			<br />
 			<div class="centralizar">
-				<a href="#" th:href="@{/segurado/cadastrar-item}" class="btn btn-success">Cadastrar Item de Seguro</a>
+				<a href="#" th:href="@{/segurado/cadastrar-item(id=${segurado.id})}" class="btn btn-success">Cadastrar Item de Seguro</a>
 			</div>
 		</form>
 		
