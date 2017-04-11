@@ -84,9 +84,4 @@ public class SeguradoController {
 		return view;
 	}
 		
-	
-	
-	
-	
-	
 }
