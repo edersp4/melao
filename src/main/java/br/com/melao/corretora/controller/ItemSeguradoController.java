@@ -17,8 +17,9 @@ public class ItemSeguradoController {
 	}
 
 	@RequestMapping(value = "/item/gravar")
-	public ModelAndView gravar(ItemSeguroCarro itemSeguroCarro) {
+	public ModelAndView gravar(ItemSeguroCarro item ) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroCarro");
+		System.out.println();
 		return view;
 	}
 

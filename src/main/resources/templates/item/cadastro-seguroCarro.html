@@ -15,8 +15,7 @@
 		<br/>
 		<br/>
 		
-		<form action="#" th:action="@{/item/cadastro-seguroCarro}" th:object="${itemSeguroCarro}" method="post">
-
+		<form action="#" th:action="@{/item/gravar}" th:object="${itemSeguroCarro}" method="post">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -48,7 +47,7 @@
 			<hr/>
 			<br/>
 			<div class="centralizar">
-					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<a href="#" th:href="@{/item/gravar}" class="btn btn-success">Cadastrar</a>
 			</div>
 		</form>
 		</fieldset>

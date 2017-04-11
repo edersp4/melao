@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.melao.corretora.model.ItemSeguro;
 import br.com.melao.corretora.model.ItemSeguroCarro;
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.service.cadastro.SeguradoService;
