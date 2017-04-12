@@ -1,5 +1,7 @@
 package br.com.melao.corretora.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +71,8 @@ public class SeguradoController {
 	public ModelAndView detalheSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/detalhe-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
+		List<ItemSeguroCarro> listaItemSeguro = segurado.getSeguro();
+		view.addObject("listaItemSeguro", listaItemSeguro);
 		view.addObject(segurado);
 		return view;
 	}

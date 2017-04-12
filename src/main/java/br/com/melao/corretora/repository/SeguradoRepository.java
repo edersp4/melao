@@ -10,9 +10,5 @@ import br.com.melao.corretora.model.Segurado;
 
 @Repository
 public interface SeguradoRepository extends JpaRepository<Segurado, Long> ,QueryByExampleExecutor<Segurado> {
-	List<Segurado> findByNomeContaining(String nome);
-	List<Segurado> findByCpfContaining(String cpf);
-	List<Segurado> findByTelefoneContaining(String telefone);
-	List<Segurado> findByCepContaining(String cep);
 	
 }

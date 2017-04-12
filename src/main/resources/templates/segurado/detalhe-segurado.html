@@ -65,24 +65,23 @@
 				<a href="#" th:href="@{/segurado/cadastrar-item(id=${segurado.id})}" class="btn btn-success">Cadastrar Item de Seguro</a>
 			</div>
 		</form>
-		
-		<table class="table table-hover" id="tab-segurado" th:if="${listaSegurados ne null and not listaSegurados.empty}">
+
+<br/>		
+<br/>		
+<br/>		
+		<table class="table table-hover" id="tab-segurado">
 
 		<tr>
 			<th>Modelo</th>
 			<th>Data de Fabricacao</th>
-			<th>Telefone</th>
 			<th>Placa</th>
-			<th></th>
-			<th></th>
+			<th>Chassi</th>
 		</tr>
 		<tr th:each="itemSeguro : ${listaItemSeguro}">
-			<td><span th:text="${itemSeguro.nome}"></span></td>
-			<td><span th:text="${itemSeguro.cpf}"></span></td>
-			<td><span th:text="${itemSeguro.telefone}"></span></td>
-			<td><span th:text="${itemSeguro.cep}"></span></td>
-			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}">Atualizar</a></td>
-			<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}">Detalhes</a></td>
+			<td><span th:text="${itemSeguro.modelo}"></span></td>
+			<td><span th:text="${#dates.format(itemSeguro.dataFabricacao, 'dd/MM/yyyy')}"></span></td>
+			<td><span th:text="${itemSeguro.placa}"></span></td>
+			<td><span th:text="${itemSeguro.chassi}"></span></td>
 		</tr>
 		</table>
 		
