@@ -10,6 +10,7 @@
 	<div th:replace="header"></div>
 	
 	<div class="container" id="content" tabindex="-1">
+		<div class="borda-div">
 		<fieldset class="scheduler-border">
 		<legend class="scheduler-border white">Cadastro do Segurado</legend>
 		<br/>
@@ -17,15 +18,16 @@
 		
 		<form action="#" th:action="@{/item/gravar}" th:object="${itemSeguroCarro}" method="post">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
 					<div class="form-group">
 						<label for="" class="control-label">Modelo</label>
 						<input type="text" th:field="*{modelo}" class="form-control" />
 						<p th:if="${#fields.hasErrors('modelo')}" class="label label-danger" th:errors="*{modelo}"></p>	
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Data de Fabricação</label>
-						<input type="text" th:field="*{dataFabricacao}" class="form-control" />
+						<label for="" class="control-label ">Data de Fabricação</label>
+						<input type="text" th:field="*{dataFabricacao}" class="form-control date" placeholder="Ex.: dd/mm/aaaa" maxlength="10" />
 						<p th:if="${#fields.hasErrors('dataFabricacao')}" class="label label-danger" th:errors="*{dataFabricacao}"></p>	
 					</div>
 					<div class="form-group">
@@ -51,6 +53,7 @@
 			</div>
 		</form>
 		</fieldset>
+		</div>
 	</div>
 </body>
 </html>

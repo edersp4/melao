@@ -16,12 +16,8 @@ body{
     background-color: #F1F1F1;
 }
 
-.container{
-	padding:20px;
-}
-
 .borda-div{
 	border:1px solid #CCC;
-	padding: 20px;
+	padding: 40px;
 	border-radius:10px;
 }
