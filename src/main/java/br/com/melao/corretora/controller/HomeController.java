@@ -12,7 +12,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public ModelAndView index() {
-		ModelAndView mv = new ModelAndView("/home/index");
+		ModelAndView mv = new ModelAndView("/login/index");
 		return mv;
 	}
 	

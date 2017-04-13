@@ -1,5 +1,7 @@
 package br.com.melao.corretora.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.melao.corretora.model.ItemSeguro;
 import br.com.melao.corretora.model.ItemSeguroCarro;
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.service.cadastro.SeguradoService;
@@ -70,6 +71,8 @@ public class SeguradoController {
 	public ModelAndView detalheSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/detalhe-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
+		List<ItemSeguroCarro> listaItemSeguro = segurado.getSeguro();
+		view.addObject("listaItemSeguro", listaItemSeguro);
 		view.addObject(segurado);
 		return view;
 	}
@@ -84,9 +87,4 @@ public class SeguradoController {
 		return view;
 	}
 		
-	
-	
-	
-	
-	
 }

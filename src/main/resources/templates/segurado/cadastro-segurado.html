@@ -11,11 +11,10 @@
 	
 	<div class="container" id="content" tabindex="-1">
 		<fieldset class="scheduler-border">
-		<legend class="scheduler-border">Cadastro do Segurado</legend>
+		<legend class="scheduler-border white">Cadastro do Segurado</legend>
 		<br/>
 		<br/>
 		<form action="#" th:action="@{/segurado/gravar}" th:object="${segurado}" method="post">
-		<input type="hidden" th:field="*{id}"></input>
 		
 		<div class="row">
 			<div class="col-md-6"> 
