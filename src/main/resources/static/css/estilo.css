@@ -3,3 +3,25 @@
     text-align: center;
 }
 
+.navbar-default {
+    background-color: #39436D;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #FFF;
+}
+
+body{
+    background-color: #F1F1F1;
+}
+
+.container{
+	padding:20px;
+}
+
+.borda-div{
+	border:1px solid #CCC;
+	padding: 20px;
+	border-radius:10px;
+}
