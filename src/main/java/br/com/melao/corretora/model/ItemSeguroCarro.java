@@ -2,26 +2,21 @@ package br.com.melao.corretora.model;
 
 import java.util.Calendar;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class ItemSeguroCarro implements ItemSeguro{
+@DiscriminatorValue("SeguroCarro")
+public class ItemSeguroCarro extends ItemSeguro{
 
 	public ItemSeguroCarro() {
-		
 	}
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+
 	private String modelo;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy")
@@ -33,19 +28,13 @@ public class ItemSeguroCarro implements ItemSeguro{
 	@JoinColumn(name ="ID_SEGURADO" )
 	private Segurado segurado;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getModelo() {
 		return modelo;
 	}
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	
+
 	public String getPlaca() {
 		return placa;
 	}
@@ -70,9 +59,4 @@ public class ItemSeguroCarro implements ItemSeguro{
 	public void setDataFabricacao( Calendar dataFabricacao ) {
 		this.dataFabricacao = dataFabricacao;
 	}
-	
-	
-	
-	
-
 }
