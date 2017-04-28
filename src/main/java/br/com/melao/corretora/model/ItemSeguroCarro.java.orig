@@ -18,12 +18,26 @@ public class ItemSeguroCarro extends ItemSeguro{
 
 	public ItemSeguroCarro() {
 	}
+<<<<<<< HEAD
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotBlank
+=======
 
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 	private String modelo;
 	
+	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFabricacao;
+	
+	@NotBlank
 	private String placa;
+	
+	@NotBlank
 	private String chassi;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

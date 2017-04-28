@@ -10,16 +10,28 @@
 
 
 	<div class="container" id="content" tabindex="-1">
+<<<<<<< HEAD
+		<div class="borda-div">
+		<fieldset class="scheduler-border">
+		<legend class="scheduler-border white">Cadastro do Segurado</legend>
+	
+=======
 	<div class="borda-div" >
 		<fieldset class="scheduler-border">
 		<legend class="scheduler-border">Cadastro do Segurado</legend>
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 		<br/>
 		<form action="#" th:action="@{/segurado/gravar}" th:object="${segurado}" method="post">
 		<input type="hidden" th:field="*{id}"></input>
 		<div class="row">
+<<<<<<< HEAD
+		<div class="col-md-3"></div>
+			<div class="col-md-3">
+=======
 			<div class="col-md-3">
 			</div> 
 			<div class="col-md-3"> 
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 				<div class="form-group">
 					<label for="" class="control-label">Segurado</label>
 					<input type="text" th:field="*{nome}" class="form-control" />
@@ -63,6 +75,13 @@
 			
 			</div>
 		</div>
+<<<<<<< HEAD
+=======
+			<br />
+			<br />
+			<hr style="border:1px dotted #e7e7e7;" />
+			<br />
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 		
 		<hr/>
 
@@ -73,7 +92,13 @@
 		</fieldset>
 	</div>
 	</div>
+<<<<<<< HEAD
 
 <div th:replace="footer"></div>
+=======
+	<div th:replace="footter"></div>
+	
+
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 </body>
 </html>

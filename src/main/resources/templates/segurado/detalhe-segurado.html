@@ -8,11 +8,10 @@
 	<div th:replace="header"></div>
 
 	<div class="container" id="content" tabindex="-1">
-		<div class="borda-div">
-			<fieldset class="scheduler-border">
-				<legend class="scheduler-border white">Informações do Segurado</legend>
-				<form action="#" th:action="@{/segurado/gravar}"
-					th:object="${segurado}" method="post">
+	<div class="borda-div">
+		<fieldset class="scheduler-border">
+		<legend class="scheduler-border">Informações do Segurado</legend>
+		<form action="#" th:action="@{/segurado/gravar}" th:object="${segurado}" method="post">
 
 					<div class="row">
 						<div class="col-md-4">

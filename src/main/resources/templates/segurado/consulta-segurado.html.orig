@@ -9,14 +9,23 @@
 	<div th:replace="header"></div>
 	<div class="container" id="content" tabindex="-1">
 	<div class="borda-div">
+<<<<<<< HEAD
+	<fieldset class="scheduler-border">
+		<legend class="scheduler-border">Consulta do Segurado</legend>
+=======
+
 	<fieldset class="scheduler-border">
 		<legend class="scheduler-border white">Consulta do Segurado</legend>
 		<br/>
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 
 		<form action="#" th:action="@{/segurado/buscar}"  method="get">
 			<div class="col-md-4"></div>
 			<div class="row"  th:object="${segurado}">
+<<<<<<< HEAD
 				<div class="col-md-4"></div>
+=======
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 				<div class="col-md-4">
 
 					
@@ -43,11 +52,19 @@
 				
 				</div>
 			</div>
+<<<<<<< HEAD
 			<hr/>
+=======
+
+			<br />
+			<hr style="border:1px dotted #e7e7e7;" />
+			<br />
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 			<div class="centralizar">
 				<button type="submit"  class="btn btn-primary">Consultar</button>
 			</div>
 		</form>
+<<<<<<< HEAD
 	
 	<div th:if="${listaSegurados ne null and not listaSegurados.empty}">
 		<br />
@@ -87,7 +104,46 @@
 	<!-- Button trigger modal -->
 
 	<div th:replace="footer"></div>
+
+=======
+		</fieldset>
+		
+
+	
+	<!-- Button trigger modal -->
+
+	<div th:if="${listaSegurados ne null and not listaSegurados.empty}">
+	<br />
+	<br />
+	<br />
+		<table class="table table-hover" id="tab-segurado">
+	
+			<tr>
+				<th>Nome</th>
+				<th>Cpf</th>
+				<th>Telefone</th>
+				<th>Cep</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr th:each="segurado : ${listaSegurados}">
+				<td><span th:text="${segurado.nome}"></span></td>
+				<td><span th:text="${segurado.cpf}"></span></td>
+				<td><span th:text="${segurado.telefone}"></span></td>
+				<td><span th:text="${segurado.cep}"></span></td>
+				<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}">Atualizar</a></td>
+				<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}">Detalhes</a></td>
+				
+			</tr>
+		</table>
+
+	</div>
+	</div>
+		
+
+	</div>
 	<div th:replace="footter"></div>
+>>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 
 </body>
 </html>
