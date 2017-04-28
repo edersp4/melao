@@ -5,6 +5,12 @@ jQuery(document).ready(function() {
 	$('.cpf').mask('000.000.000-00', {reverse: true});
 	$('.telefone').mask('(00) 0000-00000');
 	$('.placa').mask('AAA-0000');
+	$('.placa').mask('AAA-0000');
+	$('.modeloAno').mask('0000/0000');
+	$('.dinheiro').mask('#.##0,00', {reverse: true});
+	$('.numero').mask('#0', {reverse: true});
+	$('.porcentagem').mask('000,0', {reverse: true});
+	
 	
 	$('[data-toggle="tooltip"]').tooltip(); 
 });

@@ -27,6 +27,7 @@ public abstract class ItemSeguro {
 	private String valorComissao;
 	private String premioLiquido;
 	private String quantidadeParcela;
+	private String observacao;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataInicioVigencia;
@@ -104,6 +105,14 @@ public abstract class ItemSeguro {
 
 	public void setDataFimVigencia( Calendar dataFimVigencia ) {
 		this.dataFimVigencia = dataFimVigencia;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 	
 	

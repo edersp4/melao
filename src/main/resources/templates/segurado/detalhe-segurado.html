@@ -86,7 +86,7 @@
 						</tr>
 						<tr th:each="itemSeguro : ${listaItemSeguro}">
 							<td><span th:text="${itemSeguro.modelo}"></span></td>
-							<td><span th:text="${#dates.format(itemSeguro.dataFabricacao, 'dd/MM/yyyy')}"></span></td>
+							<td><span th:text="${itemSeguro.dataFabricacao}"></span></td>
 							<td><span th:text="${itemSeguro.placa}"></span></td>
 							<td><span th:text="${itemSeguro.chassi}"></span></td>
 						</tr>

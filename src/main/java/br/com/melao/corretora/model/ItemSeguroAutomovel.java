@@ -1,43 +1,22 @@
 package br.com.melao.corretora.model;
 
-import java.util.Calendar;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@DiscriminatorValue("SeguroCarro")
-public class ItemSeguroCarro extends ItemSeguro{
+@DiscriminatorValue("SeguroAutomovel")
+public class ItemSeguroAutomovel extends ItemSeguro{
 
-	public ItemSeguroCarro() {
+	public ItemSeguroAutomovel() {
 	}
-<<<<<<< HEAD
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-	
-	@NotBlank
-=======
 
->>>>>>> ac2db2c3a34c929438d00582025279a86f359812
 	private String modelo;
 	
-	@NotNull
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Calendar dataFabricacao;
-	
-	@NotBlank
+	private String dataFabricacao;
 	private String placa;
-	
-	@NotBlank
 	private String chassi;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -69,10 +48,11 @@ public class ItemSeguroCarro extends ItemSeguro{
 	public void setSegurado(Segurado segurado) {
 		this.segurado = segurado;
 	}
-	public Calendar getDataFabricacao() {
+	public String getDataFabricacao() {
 		return dataFabricacao;
 	}
-	public void setDataFabricacao( Calendar dataFabricacao ) {
+	public void setDataFabricacao(String dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
 	}
+
 }

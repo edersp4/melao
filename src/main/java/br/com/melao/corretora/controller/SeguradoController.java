@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.melao.corretora.model.ItemSeguroCarro;
+import br.com.melao.corretora.model.ItemSeguroAutomovel;
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.service.cadastro.SeguradoService;
 
@@ -71,7 +71,7 @@ public class SeguradoController {
 	public ModelAndView detalheSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/detalhe-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
-		List<ItemSeguroCarro> listaItemSeguro = segurado.getSeguro();
+		List<ItemSeguroAutomovel> listaItemSeguro = segurado.getSeguro();
 		view.addObject("listaItemSeguro", listaItemSeguro);
 		view.addObject(segurado);
 		return view;
@@ -79,10 +79,10 @@ public class SeguradoController {
 	
 	@RequestMapping(value="/segurado/cadastrar-item")
 	public ModelAndView cadastrarItem(Segurado segurado, final RedirectAttributes redirectAttributes ){
-		ItemSeguroCarro item = new ItemSeguroCarro();
+		ItemSeguroAutomovel item = new ItemSeguroAutomovel();
 		segurado = seguradoService.detalheSegurado(segurado.getId());
 		item.setSegurado(segurado);
-		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroCarro");
+		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroAutomovel");
 		redirectAttributes.addFlashAttribute(item);
 		redirectAttributes.addFlashAttribute("listaItemSeguro" , segurado.getSeguro());
 		return view;

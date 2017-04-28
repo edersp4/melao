@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+	
+			<h5 class="text-info">INFORMAÇÕES DO SEGURO</h5>
+			<br/>
+			
+			<div class="row">
+				
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="" class="control-label">Seguradora</label>
+						<select class="form-control" >
+							<option value="0">Selecione</option>
+							<option th:each="ciaSeguro : ${listaCiaSeguro}" th:value="${ciaSeguro.id}" th:text="${ciaSeguro.nome}"></option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="" class="control-label">Quantidade de Parcela</label>
+						<input type="text" th:field="*{quantidadeParcela}" class="form-control numero" maxlength="3" />
+					</div>
+				
+					<div class="form-group">
+						<label for="" class="control-label">Data de Vigência Inicial</label>
+						<input type="text" th:field="*{dataInicioVigencia}" class="form-control date" />
+					</div>
+				
+					<div class="form-group">
+						<label for="" class="control-label">Observação</label>
+						<textarea rows="3"  th:field="*{observacao}" class="form-control"></textarea>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="" class="control-label">SUSEP</label>
+						<input type="text" th:field="*{susep}" class="form-control" />
+						
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label">% Comissão</label>
+						<input type="text" th:field="*{porcentagemComissao}" class="form-control porcentagem" />
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label">Data de Vigência Final</label>
+						<input type="text" th:field="*{dataFimVigencia}" class="form-control date" />
+					</div>
+						
+				</div>
+				<div class="col-md-4">
+				
+					<div class="form-group">
+						<label for="" class="control-label">Prêmio Líquido</label>
+						<input type="text" th:field="*{premioLiquido}" class="form-control dinheiro" />
+					</div>
+					<div class="form-group">
+						<label for="" class="control-label">Valor da Comissão</label>
+						<input type="text" th:field="*{valorComissao}" class="form-control dinheiro" />
+					</div>
+				</div>
+			</div>
+			
