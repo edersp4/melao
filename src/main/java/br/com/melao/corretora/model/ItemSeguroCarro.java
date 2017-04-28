@@ -9,7 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -22,11 +24,18 @@ public class ItemSeguroCarro implements ItemSeguro{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank
 	private String modelo;
 	
+	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFabricacao;
+	
+	@NotBlank
 	private String placa;
+	
+	@NotBlank
 	private String chassi;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

@@ -84,6 +84,7 @@ public class SeguradoController {
 		item.setSegurado(segurado);
 		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroCarro");
 		redirectAttributes.addFlashAttribute(item);
+		redirectAttributes.addFlashAttribute("listaItemSeguro" , segurado.getSeguro());
 		return view;
 	}
 		

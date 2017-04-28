@@ -1,5 +1,7 @@
 package br.com.melao.corretora.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.melao.corretora.model.ItemSeguroCarro;
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.service.cadastro.ItemSeguroService;
+import org.springframework.validation.BindingResult; 
 
 @Controller
 public class ItemSeguradoController {
@@ -25,11 +28,14 @@ public class ItemSeguradoController {
 	}
 
 	@RequestMapping(value = "/item/gravar")
-	public ModelAndView gravar(ItemSeguroCarro itemSeguroCarro ) {
+	public ModelAndView gravar(@Valid ItemSeguroCarro itemSeguroCarro, BindingResult result ) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroCarro");
 		itemSeguroCarro.setSegurado(segurado);
+		
+		if(result.hasErrors()) {
+			return cadastro(itemSeguroCarro);
+		}
 		service.salvar(itemSeguroCarro);
-		System.out.println();
 		return view;
 	}
 

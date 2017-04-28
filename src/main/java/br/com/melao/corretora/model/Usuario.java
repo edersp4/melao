@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
 	private Long id;
-	private String usuario;
+	private String login;
 	private String password;
 
 	@Id
@@ -21,20 +21,21 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
+	
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 }

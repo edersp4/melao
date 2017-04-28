@@ -17,6 +17,7 @@ import br.com.melao.corretora.service.cadastro.SeguradoService;
 @ComponentScan(basePackageClasses= {MelaoCorretorasApplication.class , HomeController.class,SeguradoService.class})
 @EnableJpaRepositories(basePackageClasses={SeguradoRepository.class})
 @EntityScan(basePackageClasses= {Segurado.class})
+
 public class MelaoCorretorasApplication {
 
 	public static void main(String[] args) {

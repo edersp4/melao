@@ -1,17 +1,44 @@
 package br.com.melao.corretora.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.melao.corretora.model.Usuario;
+import br.com.melao.corretora.service.cadastro.UsuarioService;
+
 @Controller
-@RequestMapping("/")
 public class HomeController {
 	
+	@Autowired
+	private UsuarioService service;
+	
 	@RequestMapping("/")
-	public ModelAndView index() {
-		ModelAndView mv = new ModelAndView("/login/index");
+	public ModelAndView index(Usuario usuario) {
+		ModelAndView mv = new ModelAndView("/home/index");
 		return mv;
+	}
+	
+	@RequestMapping("/home/home")
+	public ModelAndView home() {
+		ModelAndView view = new ModelAndView("/home/home");
+		return view;
+	}
+	
+	@RequestMapping("/home")
+	public ModelAndView login(Usuario usuario , HttpSession session) {
+		ModelAndView view;
+		if(service.isLoginValido(usuario)) {
+			view = new ModelAndView("redirect:/home/home");
+			session.setAttribute("usuarioLogado", usuario);
+		}else {
+			view = new ModelAndView("redirect:/");
+		}
+		
+		return view;
 	}
 	
 }

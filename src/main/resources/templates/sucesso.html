@@ -7,12 +7,14 @@
 <body>
 	<div th:replace="header"></div>
 	<div class="container" id="content" tabindex="-1">
-		<h1>Cadastrado Com Sucesso!</h1>
-		<div>
-			<input type="button" class="btn btn-default" onclick="voltar();" value="Voltar"></input>
+	<div class="borda-div" style="background-color:white; height:300px;">
+		<div class="centralizar"><h1>Cadastrado Com Sucesso!</h1></div>
+		<div class="centralizar" style="position: relative;bottom: -100px;">
+			<a class="btn btn-warning" href="#" th:href="@{/segurado/cadastro-segurado}" >Voltar</a>
 		</div>
 	</div>
-	
+	</div>
+	<div th:replace="footer"></div>
 
 
 </body>
