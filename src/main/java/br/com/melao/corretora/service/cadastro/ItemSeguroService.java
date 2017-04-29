@@ -23,7 +23,7 @@ public class ItemSeguroService {
 	}
 	
 	public List<CiaSeguro> carregarSeguradora(){
-		return ciaSeguradoraRepository.findAll();
+		return ciaSeguradoraRepository.findAllByOrderByNomeAsc();
 	}
 	
 	

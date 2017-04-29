@@ -32,13 +32,7 @@
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="form-group">
-
-								<dl>
-									<dt>CEP:</dt>
-									<dd class="text-info" th:text="*{cep}"></dd>
-								</dl>
-							</div>
+							
 							<div class="form-group">
 								<dl>
 									<dt>e-mail:</dt>
@@ -61,10 +55,60 @@
 									<dd class="text-info" th:text="*{#dates.format(dataDeNascimento, 'dd/MM/yyyy')}"></dd>
 								</dl>
 							</div>
-
-
 						</div>
 					</div>
+					
+					<h5 class="text-info"> ENDEREÇO</h5>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Rua:</dt>
+									<dd class="text-info" th:text="*{endereco.rua}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>Complemento:</dt>
+									<dd class="text-info" th:text="*{endereco.complemento}"></dd>
+								</dl>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Bairro:</dt>
+									<dd class="text-info" th:text="*{endereco.bairro}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>Número:</dt>
+									<dd class="text-info" th:text="*{endereco.numero}"></dd>
+								</dl>
+							</div>
+						</div>
+					
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Cidade:</dt>
+									<dd class="text-info" th:text="*{endereco.cidade}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>CEP:</dt>
+									<dd class="text-info" th:text="*{cep}"></dd>
+								</dl>
+							</div>
+						</div>
+					
+					
+					</div>
+					
+					
 					<hr/>
 					<div class="centralizar">
 						<input type="button" class="btn btn-default" onclick="voltar();" value="Voltar" style="width:139px"></input> 
@@ -79,20 +123,19 @@
 					<table class="table table-hover" id="tab-segurado">
 
 						<tr>
-							<th>Modelo</th>
-							<th>Data de Fabricacao</th>
-							<th>Placa</th>
-							<th>Chassi</th>
+							<th>Tipo de Seguro</th>
+							<th>Seguradora</th>
+							<th>Data de Vigência Inicial</th>
+							<th>Data de Vigência Final</th>
 						</tr>
 						<tr th:each="itemSeguro : ${listaItemSeguro}">
-							<td><span th:text="${itemSeguro.modelo}"></span></td>
-							<td><span th:text="${itemSeguro.dataFabricacao}"></span></td>
-							<td><span th:text="${itemSeguro.placa}"></span></td>
-							<td><span th:text="${itemSeguro.chassi}"></span></td>
+							<td><span th:text="${itemSeguro.tipoSeguro}"></span></td>
+							<td><span th:text="${itemSeguro.ciaSeguradora}"></span></td>
+							<td><span th:text="${#dates.format(itemSeguro.dataInicioVigencia, 'dd/MM/yyyy')}"></span></td>
+							<td><span th:text="${#dates.format(itemSeguro.dataFimVigencia, 'dd/MM/yyyy')}"></span></td>
 						</tr>
 					</table>
 				</div>
-
 			</fieldset>
 		</div>
 	</div>

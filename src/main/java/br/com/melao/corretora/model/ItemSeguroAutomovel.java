@@ -2,12 +2,9 @@ package br.com.melao.corretora.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
-@DiscriminatorValue("SeguroAutomovel")
+@DiscriminatorValue("Seguro Automovel")
 public class ItemSeguroAutomovel extends ItemSeguro{
 
 	public ItemSeguroAutomovel() {
@@ -19,9 +16,7 @@ public class ItemSeguroAutomovel extends ItemSeguro{
 	private String placa;
 	private String chassi;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name ="ID_SEGURADO" )
-	private Segurado segurado;
+	
 	
 	public String getModelo() {
 		return modelo;
@@ -42,12 +37,7 @@ public class ItemSeguroAutomovel extends ItemSeguro{
 	public void setChassi(String chassi) {
 		this.chassi = chassi;
 	}
-	public Segurado getSegurado() {
-		return segurado;
-	}
-	public void setSegurado(Segurado segurado) {
-		this.segurado = segurado;
-	}
+
 	public String getDataFabricacao() {
 		return dataFabricacao;
 	}

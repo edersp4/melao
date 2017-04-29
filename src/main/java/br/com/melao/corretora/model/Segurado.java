@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -34,17 +36,21 @@ public class Segurado {
 	@NotBlank
 	private String telefone;
 	
-	private String cep;
-	
 	@Email
 	private String email;
 	
+	@Column(insertable = false, updatable = false)
+	private String cep;
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "segurado" )
-	private List<ItemSeguroAutomovel>seguro;
+	private List<ItemSeguro>seguro;
 	
 	@NotNull
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataDeNascimento;
+	
+	@Embedded
+	private Endereco endereco;
 
 	public Long getId() {
 		return id;
@@ -55,7 +61,7 @@ public class Segurado {
 	}
 
 	public String getNome() {
-		return convertNull(nome);
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -63,7 +69,7 @@ public class Segurado {
 	}
 
 	public String getCpf() {
-		return convertNull(cpf);
+		return this.cpf;
 	}
 
 	public void setCpf(String cpf) {
@@ -71,23 +77,17 @@ public class Segurado {
 	}
 
 	public String getTelefone() {
-		return convertNull(telefone);
+		return this.telefone;
 	}
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
-	public String getCep() {
-		return convertNull(cep);
-	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
 
 	public String getEmail() {
-		return convertNull(email);
+		return email;
 	}
 
 	public void setEmail(String email) {
@@ -128,23 +128,34 @@ public class Segurado {
 	}
 	
 	
-	
-	private String convertNull(String campo) {
-		return "".equals(campo) ? null : campo;
-	}
-
 	@Override
 	public String toString() {
-		return "Segurado [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", cep=" + cep
+		return "Segurado [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone  
 				+ ", email=" + email + ", dataDeNascimento=" + dataDeNascimento + "]";
 	}
 
-	public List<ItemSeguroAutomovel> getSeguro() {
+	public List<ItemSeguro> getSeguro() {
 		return seguro;
 	}
 
-	public void setSeguro(List<ItemSeguroAutomovel> seguro) {
+	public void setSeguro(List<ItemSeguro> seguro) {
 		this.seguro = seguro;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 	
 }

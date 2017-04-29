@@ -9,9 +9,9 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="" class="control-label">Seguradora</label>
-						<select class="form-control" >
+						<select class="form-control" th:field="*{ciaSeguradora}">
 							<option value="0">Selecione</option>
-							<option th:each="ciaSeguro : ${listaCiaSeguro}" th:value="${ciaSeguro.id}" th:text="${ciaSeguro.nome}"></option>
+							<option th:each="ciaSeguro : ${listaCiaSeguro}" th:value="${ciaSeguro.nome}" th:text="${ciaSeguro.nome}"></option>
 						</select>
 					</div>
 					

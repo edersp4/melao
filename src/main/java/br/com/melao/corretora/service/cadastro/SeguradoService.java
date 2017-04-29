@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.melao.corretora.model.Segurado;
 import br.com.melao.corretora.repository.SeguradoRepository;
+import br.com.melao.corretora.utils.ReflectionUtils;
 
 @Service
 public class SeguradoService {
@@ -30,8 +31,8 @@ public class SeguradoService {
 		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnoreCase().withIgnoreNullValues()
 				.withStringMatcher(StringMatcher.CONTAINING);
 		
+		ReflectionUtils.nullifyStrings(segurado);
 		Iterable<Segurado> listaSegurados = seguradoRepository.findAll(Example.of(segurado, exampleMatcher));
-		
 		return listaSegurados;
 	}
 	
