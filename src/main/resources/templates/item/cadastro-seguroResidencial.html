@@ -15,47 +15,12 @@
 		<legend class="scheduler-border">Cadastro do Seguro Residencial</legend>
 		<br/>
 		
-		<form action="#" th:action="@{/item/gravar}" th:object="${itemSeguroAutomovel}" method="post">
+		<form action="#" th:action="@{/item/gravar-seguroResidencial}" th:object="${itemSeguroResidencial}" method="post">
 		
-		<h5 class="text-info">INFORMAÇÕES RESIDÊNCIA</h5>
+			<div th:replace="comum/endereco"></div>
+		
 			<br/>
 		
-			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="" class="control-label">Modelo</label>
-						<input type="text" th:field="*{modelo}" class="form-control" />
-						<p th:if="${#fields.hasErrors('modelo')}" class="label label-primary" th:errors="*{modelo}"></p>	
-					</div>
-					<div class="form-group">
-						<label for="" class="control-label">Chassi</label>
-						<input type="text" th:field="*{chassi}" class="form-control" maxlength="17" style="text-transform:uppercase;"/>
-						<p th:if="${#fields.hasErrors('chassi')}" class="label label-primary" th:errors="*{chassi}"></p>	
-					</div>
-				
-				</div>
-				<div class="col-md-4">
-					
-					<div class="form-group">
-						<label for="" class="control-label ">Data de Fabricação</label>
-						<input type="text" th:field="*{dataFabricacao}" class="form-control modeloAno" placeholder="Ex.: aaaa/aaaa" maxlength="9" />
-						<p th:if="${#fields.hasErrors('dataFabricacao')}" class="label label-danger" th:errors="*{dataFabricacao}"></p>	
-					</div>
-					
-					
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label for="" class="control-label">Placa</label>
-						<input type="text" th:field="*{placa}" class="form-control placa" style="text-transform:uppercase;"/>
-						<p th:if="${#fields.hasErrors('placa')}" class="label label-primary" th:errors="*{placa}"></p>	
-					</div>
-				</div>
-				
-				<br/>
-			</div>
-			<br/>
-			<br/>
 			
 			<div th:replace="item/item-seguro"></div>
 			

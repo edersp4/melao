@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.melao.corretora.model.CiaSeguro;
 import br.com.melao.corretora.model.ItemSeguroAutomovel;
 import br.com.melao.corretora.model.Segurado;
-import br.com.melao.corretora.service.cadastro.ItemSeguroService; 
+import br.com.melao.corretora.service.cadastro.ItemSeguroAutomovelService; 
 
 @Controller
 public class ItemSeguroAutomovelController {
@@ -19,7 +19,7 @@ public class ItemSeguroAutomovelController {
 	private Segurado segurado;
 	
 	@Autowired
-	private ItemSeguroService service;
+	private ItemSeguroAutomovelService service;
 	
 	@RequestMapping(value = "/item/cadastro-seguroAutomovel")
 	public ModelAndView cadastro(ItemSeguroAutomovel itemSeguroAutomovel) {

@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.melao.corretora.model.CiaSeguro;
-import br.com.melao.corretora.model.ItemSeguroAutomovel;
+import br.com.melao.corretora.model.ItemSeguroResidencial;
 import br.com.melao.corretora.repository.CiaSeguradoraRepository;
-import br.com.melao.corretora.repository.ItemSeguroAutomovelRepository;
+import br.com.melao.corretora.repository.ItemSeguroResidencialRepository;
 
 @Service
-public class ItemSeguroAutomovelService {
+public class ItemSeguroResidencialService {
 	@Autowired
-	private ItemSeguroAutomovelRepository repository;
+	private ItemSeguroResidencialRepository repository;
 	
 	@Autowired
 	private CiaSeguradoraRepository ciaSeguradoraRepository;
 	
-	public void salvar(ItemSeguroAutomovel item) {
+	public void salvar(ItemSeguroResidencial item) {
 		repository.save(item);
 	}
 	
