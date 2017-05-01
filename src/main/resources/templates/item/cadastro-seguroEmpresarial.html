@@ -15,7 +15,7 @@
 		<legend class="scheduler-border">Cadastro do Seguro Residencial</legend>
 		<br/>
 		
-		<form action="#" th:action="@{/item/gravar-seguroResidencial}" th:object="${itemSeguroResidencial}" method="post">
+		<form action="#" th:action="@{/item/gravar-seguroEmpresarial}" th:object="${itemSeguroEmpresarial}" method="post">
 		
 			<div th:replace="comum/endereco"></div>
 		
@@ -27,12 +27,21 @@
 			
 			
 			<div class="row">
+				
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="" class="control-label">Cobertura Básica</label>
 						<input type="text" th:field="*{coberturaBasica}" class="form-control" />
 					</div>
 				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="" class="control-label">Tipo de Empresa</label>
+						<input type="text" th:field="*{tipoEmpresa}" class="form-control" />
+					</div>
+				</div>
+				
+				
 			</div>
 			
 			
