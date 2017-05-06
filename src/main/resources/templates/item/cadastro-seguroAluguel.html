@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro de Seguro de Aluguel</title>
+
+</head>
+<body>
+	
+	<div th:replace="header"></div>
+	
+	<div class="container" id="content" tabindex="-1">
+		<div class="borda-div">
+		<fieldset class="scheduler-border">
+		<legend class="scheduler-border">Cadastro do Seguro de Aluguel</legend>
+		<br/>
+		
+		<form action="#" th:action="@{/item/gravar-seguroAluguel}" th:object="${itemSeguroAluguel}" method="post">
+		
+			<div th:replace="comum/endereco"></div>
+			<br/>
+		
+			
+			<div th:replace="item/item-seguro"></div>
+			
+			
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="" class="control-label">Valor do Aluguel</label>
+						<input type="text" th:field="*{valorAluguel}" class="form-control" />
+					</div>
+				</div>
+			</div>
+			
+			
+			<br/>
+			
+			<div class="centralizar">
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+			</div>
+			
+		</form>
+		</fieldset>
+		</div>
+	</div>
+	<div th:replace="footer"></div>
+</body>
+</html>
