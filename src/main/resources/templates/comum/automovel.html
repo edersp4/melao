@@ -7,13 +7,11 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="" class="control-label">Modelo</label>
-						<input type="text" th:field="*{modelo}" class="form-control" />
-						<p th:if="${#fields.hasErrors('modelo')}" class="label label-primary" th:errors="*{modelo}"></p>	
+						<input type="text" th:field="*{automovel.modelo}" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label for="" class="control-label">Chassi</label>
-						<input type="text" th:field="*{chassi}" class="form-control" maxlength="17" style="text-transform:uppercase;"/>
-						<p th:if="${#fields.hasErrors('chassi')}" class="label label-primary" th:errors="*{chassi}"></p>	
+						<input type="text" th:field="*{automovel.chassi}" class="form-control" maxlength="17" style="text-transform:uppercase;"/>
 					</div>
 				
 				</div>
@@ -21,8 +19,7 @@
 					
 					<div class="form-group">
 						<label for="" class="control-label ">Data de Fabricação</label>
-						<input type="text" th:field="*{dataFabricacao}" class="form-control modeloAno" placeholder="Ex.: aaaa/aaaa" maxlength="9" />
-						<p th:if="${#fields.hasErrors('dataFabricacao')}" class="label label-danger" th:errors="*{dataFabricacao}"></p>	
+						<input type="text" th:field="*{automovel.dataFabricacao}" class="form-control modeloAno" placeholder="Ex.: aaaa/aaaa" maxlength="9" />
 					</div>
 					
 					
@@ -30,8 +27,7 @@
 				<div class="col-md-4">
 					<div class="form-group">
 						<label for="" class="control-label">Placa</label>
-						<input type="text" th:field="*{placa}" class="form-control placa" style="text-transform:uppercase;"/>
-						<p th:if="${#fields.hasErrors('placa')}" class="label label-primary" th:errors="*{placa}"></p>	
+						<input type="text" th:field="*{automovel.placa}" class="form-control placa" style="text-transform:uppercase;"/>
 					</div>
 				</div>
 				

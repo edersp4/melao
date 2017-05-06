@@ -1,4 +1,4 @@
-package com.br.melao.corretoras;
+package com.br.melao.corretoras.configuracao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,16 +7,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.melao.corretora.controller.comum.HomeController;
-import br.com.melao.corretora.model.segurado.Segurado;
-import br.com.melao.corretora.repository.segurado.SeguradoRepository;
-import br.com.melao.corretora.service.segurado.SeguradoService;
-
+//@ComponentScan(basePackageClasses= {MelaoCorretorasApplication.class , HomeController.class,SeguradoService.class})
+//@EnableJpaRepositories(basePackageClasses={SeguradoRepository.class})
+//@EntityScan(basePackageClasses= {Segurado.class})
 @SpringBootApplication
 @Transactional
-@ComponentScan(basePackageClasses= {MelaoCorretorasApplication.class , HomeController.class,SeguradoService.class})
-@EnableJpaRepositories(basePackageClasses={SeguradoRepository.class})
-@EntityScan(basePackageClasses= {Segurado.class})
+@ComponentScan(basePackages= {"br.com.melao.corretora.controller.*","br.com.melao.corretora.configuracao","br.com.melao.corretora.service.*"})
+@EnableJpaRepositories(basePackages={"br.com.melao.corretora.repository.*"})
+@EntityScan(basePackages= {"br.com.melao.corretora.model.*"})
 
 public class MelaoCorretorasApplication {
 
