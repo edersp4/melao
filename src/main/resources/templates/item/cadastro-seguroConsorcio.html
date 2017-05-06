@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Cadastro de Automóvel</title>
+<title>Cadastro de Seguro Consorcio</title>
 
 </head>
 <body>
@@ -12,22 +12,23 @@
 	<div class="container" id="content" tabindex="-1">
 		<div class="borda-div">
 		<fieldset class="scheduler-border">
-		<legend class="scheduler-border">Cadastro de Automóvel</legend>
+		<legend class="scheduler-border">Cadastro do Seguro Consorcio</legend>
 		<br/>
 		
-		<form action="#" th:action="@{/item/gravar-seguroAutomovel}" th:object="${itemSeguroAutomovel}" method="post">
+		<form action="#" th:action="@{/item/gravar-seguroConsorcio}" th:object="${itemSeguroConsorcio}" method="post">
 		
+			<div th:replace="comum/endereco"></div>
+			<br/>
 			<div th:replace="comum/automovel"></div>
-			<br/>
-			<br/>
 			
 			<div th:replace="item/item-seguro"></div>
 			
+			<br/>
 			
-			<hr/>
 			<div class="centralizar">
 					<button type="submit" class="btn btn-success">Cadastrar</button>
 			</div>
+			
 		</form>
 		</fieldset>
 		</div>

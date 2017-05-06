@@ -1,6 +1,6 @@
 package com.br.melao.corretoras.criadores;
 
-import br.com.melao.corretora.model.Segurado;
+import br.com.melao.corretora.model.segurado.Segurado;
 
 public class CriadorSegurado {
 	

@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.br.melao.corretoras.criadores.CriadorSegurado;
 
-import br.com.melao.corretora.model.Segurado;
+import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.utils.ReflectionUtils;
 
 public class ReflectionUtilsTest {
