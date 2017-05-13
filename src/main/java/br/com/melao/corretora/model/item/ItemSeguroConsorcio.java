@@ -4,6 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
+import br.com.melao.corretora.model.comum.Automovel;
 import br.com.melao.corretora.model.comum.Endereco;
 
 @Entity
@@ -12,8 +13,9 @@ public class ItemSeguroConsorcio extends ItemSeguro {
 
 	@Embedded
 	private Endereco endereco;
+	
 	@Embedded
-	private ItemSeguroAutomovel automovel;
+	private Automovel automovel;
 
 	private String tipo;
 
@@ -25,13 +27,7 @@ public class ItemSeguroConsorcio extends ItemSeguro {
 		this.endereco = endereco;
 	}
 
-	public ItemSeguroAutomovel getAutomovel() {
-		return automovel;
-	}
-
-	public void setAutomovel(ItemSeguroAutomovel automovel) {
-		this.automovel = automovel;
-	}
+	
 
 	public String getTipo() {
 		return tipo;
@@ -39,6 +35,14 @@ public class ItemSeguroConsorcio extends ItemSeguro {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public Automovel getAutomovel() {
+		return automovel;
+	}
+
+	public void setAutomovel(Automovel automovel) {
+		this.automovel = automovel;
 	}
 	
 }

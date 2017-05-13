@@ -14,19 +14,45 @@
 		<fieldset class="scheduler-border">
 		<legend class="scheduler-border">Cadastro do Seguro Consorcio</legend>
 		<br/>
+
+				<div class="alert alert-warning alert-dismissible fade in"	role="alert" style="display: none;">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<strong>Holy guacamole!</strong> Best check yo self, you're not
+					looking too good.
+				</div>
+
+				<form action="#" th:action="@{/item/gravar-seguroConsorcio}" th:object="${itemSeguroConsorcio}" method="post">
 		
-		<form action="#" th:action="@{/item/gravar-seguroConsorcio}" th:object="${itemSeguroConsorcio}" method="post">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<label for="" class="control-label">Tipo</label>
+						<select class="form-control" th:field="*{tipo}" onchange="mostrarPorTipo();" >
+							<option value="">Selecione</option>
+							<option value="Imóvel">Imóvel</option>
+							<option value="Automóvel">Automóvel</option>
+						</select>
+					</div>
+				</div>
+			</div>
 		
-			<div th:replace="comum/endereco"></div>
+			<div id="endereco" style="display: none;">		
+				<div th:replace="comum/endereco"></div>
+			</div>
 			<br/>
-			<div th:replace="comum/automovel"></div>
+			
+			<div id="automovel" style="display: none;">
+				<div th:replace="comum/automovel"></div>
+			</div>
 			
 			<div th:replace="item/item-seguro"></div>
 			
 			<br/>
 			
 			<div class="centralizar">
-					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<button type="submit" class="btn btn-success" onclick="validarItemConsorcio();">Cadastrar</button>
 			</div>
 			
 		</form>
