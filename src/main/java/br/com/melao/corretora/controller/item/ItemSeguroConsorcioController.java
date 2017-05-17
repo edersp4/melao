@@ -14,7 +14,7 @@ import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.service.item.ItemSeguroConsorcioService;
 
 @Controller
-public class ItemSeguroConsorsioController {
+public class ItemSeguroConsorcioController {
 
 	
 	private Segurado segurado;
@@ -22,7 +22,7 @@ public class ItemSeguroConsorsioController {
 	@Autowired
 	private ItemSeguroConsorcioService service;
 	
-	public ItemSeguroConsorsioController() {
+	public ItemSeguroConsorcioController() {
 	}
 	
 	

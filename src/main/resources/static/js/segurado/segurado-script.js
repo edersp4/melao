@@ -46,4 +46,8 @@ function voltar(){
 	window.history.back();	
 }
 
+function consultarSegurado(){
+ window.open("/segurado/consulta-segurado");
+}
+
 
