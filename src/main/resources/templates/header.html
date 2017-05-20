@@ -5,6 +5,7 @@
 <title>Cadastro de Segurado</title>
 <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../../css/estilo.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../font-awesome/css/font-awesome.css"/>
 <link rel="stylesheet prefetch" href="http://fonts.googleapis.com/css?family=Open+Sans:600"/>
 
 <script src="../../js/jquery-3.1.1.min.js"></script>
@@ -14,14 +15,11 @@
 <script src="../../js/item/item-seguro-script.js"></script>
 <script src="../../js/jquery-mask.js"></script>
 
-
-<style>
-</style>
 </head>
 <body>
 
-<header>
-	<nav class="navbar navbar-default ">
+<header> 
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<ul class="nav navbar-nav">
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp;Segurado <b class="caret"></b></a>
@@ -30,21 +28,22 @@
                   <li><a href="#" th:href="@{/segurado/consulta-segurado}"><i class="glyphicon glyphicon-search" aria-hidden="true"></i> &nbsp;Consultar Segurado</a></li>
                 </ul>
 			</li>
+
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i> &nbsp;Item Seguro <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-                  <li><a href="#" th:href="@{/item/cadastro-seguroAutomovel}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Automóvel </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroResidencial}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Residência </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroEmpresarial}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro Empresarial </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroVida}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro Vida </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroAluguel}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Aluguel </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroPrevidencia}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Previdência </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroConsorcio}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Consórcio </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroEquipamento}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Equipamento </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroCondominio}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Condomínio </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroOdontologico}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Odontologico </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroFinanciamento}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Financiamento </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroRastreador}"> <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Seguro de Rastreador </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroAutomovel}"> <i class="fa fa-car" aria-hidden="true"></i> &nbsp;Seguro de Automóvel </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroResidencial}"> <i class="fa fa-home" aria-hidden="true"></i> &nbsp;Seguro de Residência </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroEmpresarial}"> <i class="fa fa-industry" aria-hidden="true"></i> &nbsp;Seguro Empresarial </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroVida}"> <i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Seguro Vida </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroAluguel}"> <i class="fa fa-bed" aria-hidden="true"></i> &nbsp;Seguro de Aluguel </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroPrevidencia}"> <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp;Seguro de Previdência </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroConsorcio}"> <i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Seguro de Consórcio </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroEquipamento}"> <i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Seguro de Equipamento </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroCondominio}"> <i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;Seguro de Condomínio </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroOdontologico}"> <img src="../../img/icone/molar-pequeno.png" alt="" /> &nbsp;Seguro de Odontologico </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroFinanciamento}"> <i class="fa fa-money" aria-hidden="true"></i> &nbsp;Seguro de Financiamento </a></li>
+                  <li><a href="#" th:href="@{/item/cadastro-seguroRastreador}"> <i class="fa fa-search-plus" aria-hidden="true"></i> &nbsp;Seguro de Rastreador </a></li>
                 </ul>
 			</li>
 		</ul>

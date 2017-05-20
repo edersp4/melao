@@ -8,7 +8,9 @@
 <body>
 	
 	<div th:replace="header"></div>
-	
+	<div class="icon">
+		<i class="fa fa-bed fa-5x" aria-hidden="true" style="color:white"></i>
+	</div>
 	<div class="container" id="content" tabindex="-1">
 		<div class="borda-div">
 		<fieldset class="scheduler-border">
@@ -20,11 +22,8 @@
 			<div th:replace="comum/endereco"></div>
 			<br/>
 		
-			
-			<div th:replace="item/item-seguro"></div>
-			
-			
-			
+				<div th:replace="item/item-seguro"></div>
+					
 			<div class="row">
 				<div class="col-md-4">
 					<div class="form-group">

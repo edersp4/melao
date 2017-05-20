@@ -9,29 +9,34 @@
 	
 	<div th:replace="header"></div>
 	
-	<div class="container" id="content" tabindex="-1">
-		<div class="borda-div">
-		<fieldset class="scheduler-border">
-		<legend class="scheduler-border">Cadastro de Automóvel</legend>
-		<br/>
-		
-		<form action="#" th:action="@{/item/gravar-seguroAutomovel}" th:object="${itemSeguroAutomovel}" method="post">
-		
-			<div th:replace="comum/automovel"></div>
-			<br/>
-			<br/>
-			
-			<div th:replace="item/item-seguro"></div>
-			
-			
-			<hr/>
-			<div class="centralizar">
-					<button type="button" class="btn btn-success" onclick="consultarSegurado();">Cadastrar</button>
-			</div>
-		</form>
-		</fieldset>
-		</div>
+	<div class="icon">
+		<i class="fa fa-car fa-5x" aria-hidden="true" style="color:white"></i>
 	</div>
+		<div class="container" id="content" tabindex="-1">
+			<div class="borda-div">
+			<fieldset class="scheduler-border">
+			<legend class="scheduler-border">Cadastro de Automóvel</legend>
+			
+	
+			
+			<form action="#" th:action="@{/item/gravar-seguroAutomovel}" th:object="${itemSeguroAutomovel}" method="post">
+			
+				<div th:replace="comum/automovel"></div>
+				<br/>
+				<br/>
+				
+				<div th:replace="item/item-seguro"></div>
+				
+				
+				<hr/>
+				<div class="centralizar">
+						<button type="button" class="btn btn-success" onclick="consultarSegurado();">Cadastrar</button>
+				</div>
+			</form>
+			</fieldset>
+			</div>
+		</div>
+	
 	<div th:replace="footer"></div>
 </body>
 </html>
