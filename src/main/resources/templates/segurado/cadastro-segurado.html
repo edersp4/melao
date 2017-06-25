@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro de Segurado</title>
@@ -27,13 +27,13 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="" class="control-label">Segurado</label>
-					<input type="text" th:field="*{nome}" class="form-control" />
+					<input type="text" th:field="*{nome}" class="form-control" th:required="required"/>
 					<p th:if="${#fields.hasErrors('nome')}" class="label label-primary" th:errors="*{nome}"></p>
 				</div>
 
 				<div class="form-group">
 					<label for="" class="control-label">CPF</label>
-					<input type="text" th:field="*{cpf}" class="form-control cpf" />
+					<input type="text" th:field="*{cpf}" class="form-control cpf" th:required="required" title="favor preencher este campo" />
 					 <p th:if="${#fields.hasErrors('cpf')}" class="label label-primary" th:errors="*{cpf}"></p>
 				</div>
 			</div> 

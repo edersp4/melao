@@ -20,7 +20,22 @@
 	
 			
 			<form action="#" th:action="@{/item/gravar-seguroAutomovel}" th:object="${itemSeguroAutomovel}" method="post">
-			
+				<div class="row">
+				<div class="col-md-5">
+					<div class="form-group">
+
+						 <div class="input-group">
+						 	<input class="form-control typeahead" name="query" id="query" placeholder="Digite um nome ou cpf" type="text" />
+						 	<span class="input-group-btn">
+						 		<a href="#" th:href="'javascript:selecionarSegurado(\''+ automovel +'\')'" class="btn btn-success"  data-toggle="tooltip" title="Seleciona um Segurado ">
+						 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+						 		</a>
+						 	</span>
+						</div>
+					</div>				
+				</div>
+				</div> 	
+							
 				<div th:replace="comum/automovel"></div>
 				<br/>
 				<br/>
@@ -38,5 +53,62 @@
 		</div>
 	
 	<div th:replace="footer"></div>
+	
+	<script th:inline="javascript">
+	/*<![CDATA[*/	
+  var seguradoData = [];
+
+  var seguradosList = [[${listaSegurado}]]
+  for (i = 0; i < seguradosList.length; i++) {
+	  seguradoData.push(seguradosList[i]);
+  }
+
+  
+
+  /*]]>*/
+  
+var substringMatcher = function (strings) {
+    return function findMatches(query, callback) {
+        var matches;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(query, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strings, function (i, str) {
+            if (substrRegex.test(str)) {
+                matches.push(str);
+            }
+        });
+
+        callback(matches);
+    };
+};
+
+
+var options = {};
+var dataSet = {
+    source: substringMatcher(seguradoData)
+};
+
+$('.typeahead').typeahead(options, dataSet);
+
+$('button.remove').click(
+    function () {
+        $('.typeahead').typeahead('val', '').trigger('typeahead:idle');
+    }
+);
+
+
+  
+</script>
+	
+	
+	
+	
 </body>
 </html>

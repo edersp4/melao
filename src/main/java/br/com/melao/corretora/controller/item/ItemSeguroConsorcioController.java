@@ -14,25 +14,23 @@ import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.service.item.ItemSeguroConsorcioService;
 
 @Controller
-public class ItemSeguroConsorcioController {
+public class ItemSeguroConsorcioController extends ItemController {
 
-	
 	private Segurado segurado;
-	
+
 	@Autowired
 	private ItemSeguroConsorcioService service;
-	
+
 	public ItemSeguroConsorcioController() {
 	}
-	
-	
+
 	@RequestMapping(value = "/item/cadastro-seguroConsorcio")
 	public ModelAndView cadastro(ItemSeguroConsorcio itemSeguroConsorcio) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroConsorcio");
 		this.segurado = itemSeguroConsorcio.getSegurado();
 		return view;
 	}
-	
+
 	@RequestMapping(value = "/item/gravar-seguroConsorcio")
 	public ModelAndView gravar(ItemSeguroConsorcio itemSeguroConsorcio) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroConsorcio");
@@ -40,12 +38,5 @@ public class ItemSeguroConsorcioController {
 		service.salvar(itemSeguroConsorcio);
 		return view;
 	}
-	
-	
-	@ModelAttribute("listaCiaSeguro")
-	public List<CiaSeguro> popularCiaSeguradora(){
-		return service.carregarSeguradora();
-	}
-
 
 }

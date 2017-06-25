@@ -26,7 +26,7 @@ public class SeguradoService {
 		return listaDeSegurados;
 	}
 
-	public Iterable<Segurado> buscarPorNome(Segurado segurado) {
+	public Iterable<Segurado> buscarPorExemplo(Segurado segurado) {
 		
 		ExampleMatcher exampleMatcher = ExampleMatcher.matching().withIgnoreCase().withIgnoreNullValues()
 				.withStringMatcher(StringMatcher.CONTAINING);

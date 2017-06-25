@@ -50,4 +50,3 @@ function consultarSegurado(){
  window.open("/segurado/consulta-segurado");
 }
 
-

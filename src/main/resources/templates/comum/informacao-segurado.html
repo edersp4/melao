@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+			<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Segurado:</dt>
+									<dd class="text-info" th:text="*{nome}"></dd>
+								</dl>
+							</div>
+
+
+							<div class="form-group">
+
+								<dl>
+									<dt>Telefone:</dt>
+									<dd class="text-info" th:text="*{telefone}"></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="col-md-4">
+							
+							<div class="form-group">
+								<dl>
+									<dt>e-mail:</dt>
+									<dd class="text-info" th:text="*{email}"></dd>
+								</dl>
+							</div>
+
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>CPF:</dt>
+									<dd class="text-info" th:text="*{cpf}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>Data de Nascimento:</dt>
+									<dd class="text-info" th:text="*{#dates.format(dataDeNascimento, 'dd/MM/yyyy')}"></dd>
+								</dl>
+							</div>
+						</div>
+				</div>
+				
+				<h5 class="text-info"> ENDEREÇO</h5>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Rua:</dt>
+									<dd class="text-info" th:text="*{endereco.rua}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>Complemento:</dt>
+									<dd class="text-info" th:text="*{endereco.complemento}"></dd>
+								</dl>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Bairro:</dt>
+									<dd class="text-info" th:text="*{endereco.bairro}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>Número:</dt>
+									<dd class="text-info" th:text="*{endereco.numero}"></dd>
+								</dl>
+							</div>
+						</div>
+					
+						<div class="col-md-4">
+							<div class="form-group">
+								<dl>
+									<dt>Cidade:</dt>
+									<dd class="text-info" th:text="*{endereco.cidade}"></dd>
+								</dl>
+							</div>
+							<div class="form-group">
+								<dl>
+									<dt>CEP:</dt>
+									<dd class="text-info" th:text="*{cep}"></dd>
+								</dl>
+							</div>
+						</div>
+					
+					
+					</div>
+	
+	
+		
