@@ -16,8 +16,6 @@ import br.com.melao.corretora.service.item.ItemSeguroRastreadorService;
 @Controller
 public class ItemSeguroRastreadorController extends ItemController {
 
-	private Segurado segurado;
-
 	@Autowired
 	private ItemSeguroRastreadorService service;
 

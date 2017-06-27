@@ -4,8 +4,7 @@ jQuery(document).ready(function() {
 	$('.cep').mask('00000-000');
 	$('.cpf').mask('000.000.000-00', {reverse: true});
 	$('.telefone').mask('(00) 0000-00000');
-	$('.placa').mask('AAA-0000');
-	$('.placa').mask('AAA-0000');
+	$('.placa').mask('SSS-0000');
 	$('.modeloAno').mask('0000/0000');
 	$('.dinheiro').mask('#.##0,00', {reverse: true});
 	$('.numero').mask('#0', {reverse: true});

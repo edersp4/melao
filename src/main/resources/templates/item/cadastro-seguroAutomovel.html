@@ -36,7 +36,8 @@
 					</div>				
 				</div>
 				</div> 	
-							
+				
+						
 				<div th:replace="comum/automovel"></div>
 				<br/>
 				<br/>
@@ -55,64 +56,6 @@
 	
 	<div th:replace="footer"></div>
 	
-	<script th:inline="javascript">
-	/*<![CDATA[*/	
-  var seguradoData = [];
-
-  var seguradosList = [[${listaSegurado}]]
-  for (i = 0; i < seguradosList.length; i++) {
-	  seguradoData.push(seguradosList[i]);
-  }
-
-  
-
-  /*]]>*/
-  
-var substringMatcher = function (strings) {
-    return function findMatches(query, callback) {
-        var matches;
-
-        // an array that will be populated with substring matches
-        matches = [];
-
-        // regex used to determine if a string contains the substring `q`
-        substrRegex = new RegExp(query, 'i');
-
-        // iterate through the pool of strings and for any string that
-        // contains the substring `q`, add it to the `matches` array
-        $.each(strings, function (i, str) {
-            if (substrRegex.test(str)) {
-                matches.push(str);
-            }
-        });
-
-        callback(matches);
-    };
-};
-
-
-var options = {};
-var dataSet = {
-    source: substringMatcher(seguradoData)
-};
-
-$('.typeahead').typeahead(options, dataSet);
-
-$('button.remove').click(
-    function () {
-        $('.typeahead').typeahead('val', '').trigger('typeahead:idle');
-    }
-);
-
-$('.btn').on('click', function() {
-    var $this = $(this);
-  $this.button('loading');
-    setTimeout(function() {
-       $this.button('reset');
-   }, 1000);
-});
-  
-</script>
 	
 	
 	

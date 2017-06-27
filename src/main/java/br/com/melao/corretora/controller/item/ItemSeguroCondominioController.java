@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.melao.corretora.model.item.ItemSeguroCondominio;
-import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.service.item.ItemSeguroCondominioService;
 
 @Controller
 public class ItemSeguroCondominioController extends ItemController {
-
-	private Segurado segurado;
 
 	@Autowired
 	private ItemSeguroCondominioService service;

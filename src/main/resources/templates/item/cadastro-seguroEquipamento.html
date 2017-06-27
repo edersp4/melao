@@ -2,8 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Cadastro de Seguro Vida</title>
-
+<title>Cadastro de Seguro Equipamento</title>
 </head>
 <body>
 	
@@ -18,6 +17,24 @@
 		<br/>
 		
 		<form action="#" th:action="@{/item/gravar-seguroEquipamento}" th:object="${itemSeguroEquipamento}" method="post">
+			<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+
+					 <div class="input-group">
+					 	<input class="form-control typeahead" name="query" id="query" placeholder="Digite um nome ou cpf" type="text" />
+					 	<span class="input-group-btn">
+					 		<a href="#" th:href="'javascript:selecionarSegurado(\''+ equipamento +'\')'" class="btn btn-success"  data-toggle="tooltip" data-loading-text="carregando .." title="Seleciona um Segurado">
+					 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+					 		</a>
+					 	</span>
+					</div>
+					<p class="help-block " ><ins>Encontre o segurado para vincular ao seguro.</ins></p>
+				</div>				
+			</div>
+			</div>
+			
+			<br/>
 			<h5 class="text-info">INFORMAÇÕES SEGURO DE EQUIPAMENTO</h5>
 			<br/>
 			<div class="row">
@@ -49,5 +66,8 @@
 		</div>
 	</div>
 	<div th:replace="footer"></div>
+	
+	
+	
 </body>
 </html>
