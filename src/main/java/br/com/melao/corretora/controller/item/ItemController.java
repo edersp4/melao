@@ -71,4 +71,7 @@ public abstract class ItemController {
 	}
 	
 	
+	public abstract void selecionarSegurado(@PathVariable(name="seg") String seguradoNomeCPF, HttpServletResponse response);
+	
+	
 }

@@ -20,8 +20,22 @@
 		
 		
 		<form action="#" th:action="@{/item/gravar-seguroAluguel}" th:object="${itemSeguroAluguel}" method="post">
-			
-			
+			<div class="row">
+			<div class="col-md-5">
+				<div class="form-group">
+
+					 <div class="input-group">
+					 	<input class="form-control typeahead" name="query" id="query" placeholder="Digite um nome ou cpf" type="text" />
+					 	<span class="input-group-btn">
+					 		<a href="#" th:href="'javascript:selecionarSegurado(\''+ aluguel +'\')'" class="btn btn-success"  data-toggle="tooltip" data-loading-text="carregando .." title="Seleciona um Segurado">
+					 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+					 		</a>
+					 	</span>
+					</div>
+					<p class="help-block " ><ins>Encontre o segurado para vincular ao seguro.</ins></p>
+				</div>				
+			</div>
+			</div> 
 		    <div th:replace="comum/endereco"></div>
 			<br/>
 		
@@ -95,7 +109,13 @@ $('button.remove').click(
     }
 );
 
-
+$('.btn').on('click', function() {
+    var $this = $(this);
+  $this.button('loading');
+    setTimeout(function() {
+       $this.button('reset');
+   }, 1000);
+});
   
 </script>
 	

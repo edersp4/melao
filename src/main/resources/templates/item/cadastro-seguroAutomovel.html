@@ -27,11 +27,12 @@
 						 <div class="input-group">
 						 	<input class="form-control typeahead" name="query" id="query" placeholder="Digite um nome ou cpf" type="text" />
 						 	<span class="input-group-btn">
-						 		<a href="#" th:href="'javascript:selecionarSegurado(\''+ automovel +'\')'" class="btn btn-success"  data-toggle="tooltip" title="Seleciona um Segurado ">
+						 		<a href="#" th:href="'javascript:selecionarSegurado(\''+ automovel +'\')'" class="btn btn-success"  data-toggle="tooltip" data-loading-text="carregando .." title="Seleciona um Segurado">
 						 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 						 		</a>
 						 	</span>
 						</div>
+						<p class="help-block " ><ins>Encontre o segurado para vincular ao seguro.</ins></p>
 					</div>				
 				</div>
 				</div> 	
@@ -45,7 +46,7 @@
 				
 				<hr/>
 				<div class="centralizar">
-						<button type="button" class="btn btn-success" onclick="consultarSegurado();">Cadastrar</button>
+						<button type="submit" class="btn btn-success">Cadastrar</button>
 				</div>
 			</form>
 			</fieldset>
@@ -103,7 +104,13 @@ $('button.remove').click(
     }
 );
 
-
+$('.btn').on('click', function() {
+    var $this = $(this);
+  $this.button('loading');
+    setTimeout(function() {
+       $this.button('reset');
+   }, 1000);
+});
   
 </script>
 	

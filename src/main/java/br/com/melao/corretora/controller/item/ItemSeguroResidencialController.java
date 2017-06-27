@@ -1,8 +1,12 @@
 package br.com.melao.corretora.controller.item;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.melao.corretora.model.item.ItemSeguroResidencial;
@@ -33,6 +37,13 @@ public class ItemSeguroResidencialController extends ItemController {
 		itemSeguroResidencial.setSegurado(segurado);
 		service.salvar(itemSeguroResidencial);
 		return view;
+	}
+	
+	
+	@RequestMapping(value="/item/residencial/{seg:.+}" , method=RequestMethod.GET)
+	public void selecionarSegurado(@PathVariable(name="seg") String seguradoNomeCPF, HttpServletResponse response) {
+		selecionarSegurado(seguradoNomeCPF);
+		response.setStatus(200);
 	}
 
 }
