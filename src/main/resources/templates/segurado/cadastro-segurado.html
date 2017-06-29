@@ -36,20 +36,29 @@
 					<input type="text" th:field="*{cpf}" class="form-control cpf" th:required="required" title="favor preencher este campo" />
 					 <p th:if="${#fields.hasErrors('cpf')}" class="label label-primary" th:errors="*{cpf}"></p>
 				</div>
+				
+				<div class="form-group">
+					<label for="" class="control-label">Celular</label>
+					 <input type="text" th:field="*{celular}" class="form-control telefone" />
+					 <p th:if="${#fields.hasErrors('celular')}" class="label label-primary" th:errors="*{celular}" ></p>
+				</div>
+				
 			</div> 
 			
 			
 			
 			<div class="col-md-4"> 
-				<div class="form-group">
-					<label for="" class="control-label">Telefone</label>
-					<input type="text" th:field="*{telefone}" class="form-control telefone" />
-					<p th:if="${#fields.hasErrors('telefone')}" class="label label-primary" th:errors="*{telefone}"></p>
-				</div>
+				
 				<div class="form-group">
 					<label for="" class="control-label">E-mail</label>
 					 <input type="text" th:field="*{email}" class="form-control" />
 					 <p th:if="${#fields.hasErrors('email')}" class="label label-primary" th:errors="*{email}" ></p>
+				</div>
+				
+				<div class="form-group">
+					<label for="" class="control-label">Telefone</label>
+					<input type="text" th:field="*{telefone}" class="form-control telefone" />
+					<p th:if="${#fields.hasErrors('telefone')}" class="label label-primary" th:errors="*{telefone}"></p>
 				</div>
 			</div>
 			
@@ -63,12 +72,17 @@
 					<input type="text" th:field="*{dataDeNascimento}" class="form-control  date" placeholder="Ex.: dd/mm/aaaa" maxlength="10"/>
 					<p th:if="${#fields.hasErrors('dataDeNascimento')}" class="label label-primary" th:errors="*{dataDeNascimento}">Incorrect LP</p>
 				</div>
+				
+				<div class="form-group">
+					<label for="" class="control-label">Telefone Comercial</label>
+					<input type="text" th:field="*{telefoneTrab}" class="form-control telefone"  />
+					<p th:if="${#fields.hasErrors('telefoneTrab')}" class="label label-primary" th:errors="*{*{telefoneTrab}}">Incorrect LP</p>
+				</div>
 			</div>
 			
 		</div>
 		
 		<div th:replace="comum/endereco"></div>
-		
 		
 		<hr/>
 
