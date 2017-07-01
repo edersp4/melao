@@ -10,6 +10,7 @@ public class Endereco {
 	private String cidade;
 	private String numero;
 	private String complemento;
+	private String estado;
 	
 	
 	private String cep;
@@ -61,6 +62,14 @@ public class Endereco {
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 }

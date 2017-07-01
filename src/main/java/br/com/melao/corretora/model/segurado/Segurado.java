@@ -39,6 +39,10 @@ public class Segurado {
 	@NotBlank
 	private String telefone;
 	
+	private String celular;
+	
+	private String telefoneTrab;
+	
 	@Email
 	private String email;
 	
@@ -87,7 +91,21 @@ public class Segurado {
 		this.telefone = telefone;
 	}
 
-
+	public String getCelular() {
+		return celular;
+	}
+	
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	
+	public String getTelefoneTrab() {
+		return telefoneTrab;
+	}
+	
+	public void setTelefoneTrab(String telefoneTrab) {
+		this.telefoneTrab = telefoneTrab;
+	}
 
 	public String getEmail() {
 		return email;
