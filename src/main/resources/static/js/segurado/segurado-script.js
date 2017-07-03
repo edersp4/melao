@@ -12,6 +12,12 @@ jQuery(document).ready(function() {
 	
 	
 	$('[data-toggle="tooltip"]').tooltip(); 
+
+	
+	   $(function() {
+           $("#datepicker").datepicker({ dateFormat: "dd/MM/yyy" }).val()
+	   });
+	
 });
 
 

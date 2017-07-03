@@ -53,7 +53,7 @@ public class Segurado {
 	private List<ItemSeguro>seguro;
 	
 	@NotNull
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Calendar dataDeNascimento;
 	
 	@Embedded
