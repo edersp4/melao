@@ -1,5 +1,6 @@
 package br.com.melao.corretora.model.item;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.persistence.Column;
@@ -13,8 +14,11 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import br.com.melao.corretora.model.segurado.Segurado;
 
@@ -29,10 +33,15 @@ public abstract class ItemSeguro {
 	
 	private String ciaSeguradora;
 	private String susep;
-	private String porcentagemComissao;
-	private String valorComissao;
-	private String premioLiquido;
-	private String quantidadeParcela;
+	
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal porcentagemComissao;
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal valorComissao;
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal premioLiquido;
+	@NumberFormat(pattern="#,##0")
+	private BigDecimal quantidadeParcela;
 	private String observacao;
 	
 	
@@ -40,9 +49,11 @@ public abstract class ItemSeguro {
 	@Column(name = "tipo_seguro", insertable = false, updatable = false)
 	private String tipoSeguro;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataInicioVigencia;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar dataFimVigencia;
 	
@@ -75,37 +86,7 @@ public abstract class ItemSeguro {
 		this.susep = susep;
 	}
 
-	public String getPorcentagemComissao() {
-		return porcentagemComissao;
-	}
-
-	public void setPorcentagemComissao( String porcentagemComissao ) {
-		this.porcentagemComissao = porcentagemComissao;
-	}
-
-	public String getValorComissao() {
-		return valorComissao;
-	}
-
-	public void setValorComissao( String valorComissao ) {
-		this.valorComissao = valorComissao;
-	}
-
-	public String getPremioLiquido() {
-		return premioLiquido;
-	}
-
-	public void setPremioLiquido( String premioLiquido ) {
-		this.premioLiquido = premioLiquido;
-	}
-
-	public String getQuantidadeParcela() {
-		return quantidadeParcela;
-	}
-
-	public void setQuantidadeParcela( String quantidadeParcela ) {
-		this.quantidadeParcela = quantidadeParcela;
-	}
+	
 
 	public Calendar getDataInicioVigencia() {
 		return dataInicioVigencia;
@@ -145,6 +126,38 @@ public abstract class ItemSeguro {
 
 	public void setSegurado(Segurado segurado) {
 		this.segurado = segurado;
+	}
+
+	public BigDecimal getPorcentagemComissao() {
+		return porcentagemComissao;
+	}
+
+	public void setPorcentagemComissao(BigDecimal porcentagemComissao) {
+		this.porcentagemComissao = porcentagemComissao;
+	}
+
+	public BigDecimal getValorComissao() {
+		return valorComissao;
+	}
+
+	public void setValorComissao(BigDecimal valorComissao) {
+		this.valorComissao = valorComissao;
+	}
+
+	public BigDecimal getPremioLiquido() {
+		return premioLiquido;
+	}
+
+	public void setPremioLiquido(BigDecimal premioLiquido) {
+		this.premioLiquido = premioLiquido;
+	}
+
+	public BigDecimal getQuantidadeParcela() {
+		return quantidadeParcela;
+	}
+
+	public void setQuantidadeParcela(BigDecimal quantidadeParcela) {
+		this.quantidadeParcela = quantidadeParcela;
 	}
 	
 	

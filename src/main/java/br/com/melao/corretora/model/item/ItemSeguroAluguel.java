@@ -1,8 +1,12 @@
 package br.com.melao.corretora.model.item;
 
+import java.math.BigDecimal;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+
+import org.springframework.format.annotation.NumberFormat;
 
 import br.com.melao.corretora.model.comum.Endereco;
 
@@ -12,7 +16,9 @@ public class ItemSeguroAluguel extends ItemSeguro {
 
 	@Embedded
 	private Endereco endereco;
-	private String valorAluguel;
+	
+	@NumberFormat(pattern="#,##0.00")
+	private BigDecimal valorAluguel;
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -22,12 +28,13 @@ public class ItemSeguroAluguel extends ItemSeguro {
 		this.endereco = endereco;
 	}
 
-	public String getValorAluguel() {
+	public BigDecimal getValorAluguel() {
 		return valorAluguel;
 	}
 
-	public void setValorAluguel(String valorAluguel) {
+	public void setValorAluguel(BigDecimal valorAluguel) {
 		this.valorAluguel = valorAluguel;
 	}
 
+	
 }
