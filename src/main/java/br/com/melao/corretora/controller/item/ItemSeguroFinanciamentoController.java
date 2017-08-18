@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.melao.corretora.model.item.ItemSeguroFinanciamento;
 import br.com.melao.corretora.service.item.ItemSeguroFinanciamentoService;
 
 @Controller
+@RequestMapping("/item")
 public class ItemSeguroFinanciamentoController extends ItemController {
 
 	@Autowired
@@ -21,22 +23,23 @@ public class ItemSeguroFinanciamentoController extends ItemController {
 	public ItemSeguroFinanciamentoController() {
 	}
 
-	@RequestMapping(value = "/item/cadastro-seguroFinanciamento")
+	@RequestMapping(value = "/cadastro-seguroFinanciamento")
 	public ModelAndView cadastro(ItemSeguroFinanciamento itemSeguroFinanciamento) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroFinanciamento");
 		this.segurado = itemSeguroFinanciamento.getSegurado();
 		return view;
 	}
 
-	@RequestMapping(value = "/item/gravar-seguroFinanciamento")
-	public ModelAndView gravar(ItemSeguroFinanciamento itemSeguroFinanciamento) {
-		ModelAndView view = new ModelAndView("item/cadastro-seguroFinanciamento");
+	@RequestMapping(value = "/gravar-seguroFinanciamento")
+	public ModelAndView gravar(ItemSeguroFinanciamento itemSeguroFinanciamento, RedirectAttributes attributes) {
+		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroFinanciamento");
 		itemSeguroFinanciamento.setSegurado(segurado);
 		service.salvar(itemSeguroFinanciamento);
+		attributes.addFlashAttribute("mensagem" , "Seguro de Financiamento cadastrado com sucesso!" );
 		return view;
 	}
 	
-	@RequestMapping(value="/item/financiamento/{seg:.+}" , method=RequestMethod.GET)
+	@RequestMapping(value="/financiamento/{seg:.+}" , method=RequestMethod.GET)
 	public void selecionarSegurado(@PathVariable(name="seg") String seguradoNomeCPF, HttpServletResponse response) {
 		selecionarSegurado(seguradoNomeCPF);
 		response.setStatus(200);

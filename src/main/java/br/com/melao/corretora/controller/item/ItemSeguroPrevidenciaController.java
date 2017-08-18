@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.melao.corretora.model.item.ItemSeguroPrevidencia;
 import br.com.melao.corretora.service.item.ItemSeguroPrevidenciaVidaService;
 
 @Controller
+@RequestMapping("/item")
 public class ItemSeguroPrevidenciaController extends ItemController {
 
 	@Autowired
@@ -21,22 +23,23 @@ public class ItemSeguroPrevidenciaController extends ItemController {
 	public ItemSeguroPrevidenciaController() {
 	}
 
-	@RequestMapping(value = "/item/cadastro-seguroPrevidencia")
+	@RequestMapping(value = "/cadastro-seguroPrevidencia")
 	public ModelAndView cadastro(ItemSeguroPrevidencia itemSeguroPrevidencia) {
 		ModelAndView view = new ModelAndView("item/cadastro-seguroPrevidencia");
 		this.segurado = itemSeguroPrevidencia.getSegurado();
 		return view;
 	}
 
-	@RequestMapping(value = "/item/gravar-seguroPrevidencia")
-	public ModelAndView gravar(ItemSeguroPrevidencia itemSeguroPrevidencia) {
-		ModelAndView view = new ModelAndView("item/cadastro-seguroPrevidencia");
+	@RequestMapping(value = "/gravar-seguroPrevidencia")
+	public ModelAndView gravar(ItemSeguroPrevidencia itemSeguroPrevidencia , RedirectAttributes attributes) {
+		ModelAndView view = new ModelAndView("redirect:/item/cadastro-seguroPrevidencia");
 		itemSeguroPrevidencia.setSegurado(segurado);
 		service.salvar(itemSeguroPrevidencia);
+		attributes.addFlashAttribute("mensagem" , "Seguro de Previdência cadastrado com sucesso!" );
 		return view;
 	}
 	
-	@RequestMapping(value="/item/previdencia/{seg:.+}" , method=RequestMethod.GET)
+	@RequestMapping(value="/previdencia/{seg:.+}" , method=RequestMethod.GET)
 	public void selecionarSegurado(@PathVariable(name="seg") String seguradoNomeCPF, HttpServletResponse response) {
 		selecionarSegurado(seguradoNomeCPF);
 		response.setStatus(200);

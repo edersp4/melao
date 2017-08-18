@@ -18,41 +18,39 @@ import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.service.segurado.SeguradoService;
 
 @Controller
+@RequestMapping("/segurado")
 public class SeguradoController {
 	
 	@Autowired
 	private SeguradoService seguradoService;
 	
-	@RequestMapping(value="/sucesso")
-	public ModelAndView sucesso() {
-		ModelAndView view = new ModelAndView("/sucesso");
-		return view;
-	}
 	
-	@RequestMapping(value="/segurado/cadastro-segurado" , method=RequestMethod.GET)
+	
+	@RequestMapping(value="/cadastro-segurado" , method=RequestMethod.GET)
 	public ModelAndView cadastroSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/cadastro-segurado");
 		return view;
 	}
 	
-	@RequestMapping(value="/segurado/gravar" , method=RequestMethod.POST)
-	public ModelAndView gravar(@Valid Segurado segurado , BindingResult result) {
+	@RequestMapping(value="/gravar" , method=RequestMethod.POST)
+	public ModelAndView gravar(@Valid Segurado segurado , BindingResult result , RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			return cadastroSegurado(segurado);
 		}
-		ModelAndView view = new ModelAndView("redirect:/sucesso");
-		
 		seguradoService.gravarUsuarioOuAtualizar(segurado);
+		ModelAndView view = new ModelAndView("redirect:/segurado/cadastro-segurado");
+		attributes.addFlashAttribute("mensagem" , "Segurado Cadastrado com sucesso!" );
+		
 		return view;
 	}
 	
-	@RequestMapping(value="/segurado/consulta-segurado" , method=RequestMethod.GET)
+	@RequestMapping(value="/consulta-segurado" , method=RequestMethod.GET)
 	public ModelAndView consultaSegurado(Segurado segurado) {
 		ModelAndView  view= new ModelAndView("segurado/consulta-segurado");
 		return view;
 	}
 	
-	@RequestMapping(value="/segurado/buscar" , method=RequestMethod.GET)
+	@RequestMapping(value="/buscar" , method=RequestMethod.GET)
 	public ModelAndView buscar(Segurado segurado) {
 		ModelAndView seguradosView = new ModelAndView("segurado/consulta-segurado");
 		seguradosView.addObject("listaSegurados",seguradoService.buscarPorExemplo(segurado));
@@ -60,7 +58,7 @@ public class SeguradoController {
 		return seguradosView;
 	}
 	
-	@RequestMapping(value="/segurado/alterarSegurado" , method=RequestMethod.GET)
+	@RequestMapping(value="/alterarSegurado" , method=RequestMethod.GET)
 	public ModelAndView alterarSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/cadastro-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
@@ -68,7 +66,7 @@ public class SeguradoController {
 		return view;
 	}
 	
-	@RequestMapping(value="/segurado/visualizar" , method=RequestMethod.GET)
+	@RequestMapping(value="/visualizar" , method=RequestMethod.GET)
 	public ModelAndView detalheSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/detalhe-segurado");
 		segurado = seguradoService.detalheSegurado(segurado.getId());
@@ -79,7 +77,7 @@ public class SeguradoController {
 	}
 	
 	
-	@RequestMapping(value="/segurado/cadastrar-item")
+	@RequestMapping(value="/cadastrar-item")
 	public ModelAndView cadastrarItem(Segurado segurado, final RedirectAttributes redirectAttributes ){
 		ItemSeguroAutomovel item = new ItemSeguroAutomovel();
 		segurado = seguradoService.detalheSegurado(segurado.getId());

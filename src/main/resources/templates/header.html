@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro de Segurado</title>
-<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<link href="../../css/estilo.css" rel="stylesheet" />
-<link href="../../css/typeaheadjs.css" rel="stylesheet" />
-<link rel="stylesheet" href="../../font-awesome/css/font-awesome.css"/>
-<link rel="stylesheet prefetch" href="http://fonts.googleapis.com/css?family=Open+Sans:600"/>
+<link th:href="@{../../bootstrap/css/bootstrap.min.css}" th:rel="stylesheet" />
+<link th:href="@{../../css/estilo.css}" th:rel="stylesheet" />
+<link th:href="@{../../css/typeaheadjs.css}" th:rel="stylesheet" />
+<link th:rel="stylesheet" th:href="@{../../font-awesome/css/font-awesome.css}"/>
+<link rel="stylesheet prefetch" th:href="@{http://fonts.googleapis.com/css?family=Open+Sans:600}"/>
 
-<script src="../../js/jquery-3.1.1.min.js"></script>
-<script src="../../js/jquery-ui.min.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../js/segurado/segurado-script.js"></script>
-<script src="../../js/item/item-seguro-script.js"></script>
-<script src="../../js/jquery-mask.js"></script>
-<script src="../../js/item/typeahead.jquery.js"></script>
+<script th:src="@{../../js/jquery-2.2.4.min.js}"></script>
+<script th:src="@{../../js/jquery-ui.min.js}"></script>
+<script th:src="@{../../bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{../../js/segurado/segurado-script.js}"></script>
+<script th:src="@{../../js/item/item-seguro-script.js}"></script>
+<script th:src="@{../../js/jquery-mask.js}"></script>
+<script th:src="@{../../js/item/typeahead.jquery.js}"></script>
 
 <style type="text/css">
 .espacoHorizontal>li>a{
@@ -59,9 +59,13 @@
 			</li>
 		</ul>
 		<ul class="pull-right" style="margin-top:12px;margin-right:12px">
-			<span><img alt="logout" src="../../img/brand-nav.png" width="22px" height="22px" /></span>
+			<span><img alt="logout" th:src="@{../../img/brand-nav.png}" width="22px" height="22px" /></span>
 		</ul>
 	</nav>
 </header>
+<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+	<button type="button" class="close" data-dismiss="alert">x</button>
+	<span th:text="${mensagem}"></span>
+</div>
 </body>
 </html>
