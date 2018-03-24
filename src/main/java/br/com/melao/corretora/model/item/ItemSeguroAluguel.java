@@ -6,10 +6,12 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
+import lombok.*;
 import org.springframework.format.annotation.NumberFormat;
 
 import br.com.melao.corretora.model.comum.Endereco;
 
+@Data
 @Entity
 @DiscriminatorValue("Seguro Aluguel")
 public class ItemSeguroAluguel extends ItemSeguro {
@@ -20,21 +22,5 @@ public class ItemSeguroAluguel extends ItemSeguro {
 	@NumberFormat(pattern="#,##0.00")
 	private BigDecimal valorAluguel;
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public BigDecimal getValorAluguel() {
-		return valorAluguel;
-	}
-
-	public void setValorAluguel(BigDecimal valorAluguel) {
-		this.valorAluguel = valorAluguel;
-	}
-
-	
 }

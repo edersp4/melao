@@ -38,7 +38,7 @@ public class SeguradoService {
 	
 	
 	public Segurado detalheSegurado(Long id) {
-		return seguradoRepository.findOne(id);
+		return seguradoRepository.getOne(id);
 	}
 
 }

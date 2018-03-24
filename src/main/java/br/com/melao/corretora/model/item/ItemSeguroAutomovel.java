@@ -5,7 +5,9 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 import br.com.melao.corretora.model.comum.Automovel;
+import lombok.*;
 
+@Data
 @Entity
 @DiscriminatorValue("Seguro Automovel")
 public class ItemSeguroAutomovel extends ItemSeguro{
@@ -16,11 +18,4 @@ public class ItemSeguroAutomovel extends ItemSeguro{
 	@Embedded
 	private Automovel automovel;
 
-	public Automovel getAutomovel() {
-		return automovel;
-	}
-
-	public void setAutomovel(Automovel automovel) {
-		this.automovel = automovel;
-	}
 }
