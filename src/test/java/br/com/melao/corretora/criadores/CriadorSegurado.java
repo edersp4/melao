@@ -1,4 +1,4 @@
-package com.br.melao.corretoras.criadores;
+package br.com.melao.corretora.criadores;
 
 import br.com.melao.corretora.model.segurado.Segurado;
 

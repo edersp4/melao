@@ -1,4 +1,4 @@
-package com.br.melao.corretoras.testes.utils;
+package br.com.melao.corretora.testes.utils;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -6,7 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import com.br.melao.corretoras.criadores.CriadorSegurado;
+import br.com.melao.corretora.criadores.CriadorSegurado;
 
 import br.com.melao.corretora.model.segurado.Segurado;
 import br.com.melao.corretora.utils.ReflectionUtils;

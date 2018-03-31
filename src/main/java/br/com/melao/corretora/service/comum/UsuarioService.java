@@ -9,23 +9,25 @@ import br.com.melao.corretora.repository.comum.UsuarioRepository;
 @Service
 public class UsuarioService {
 
-	@Autowired
+
 	private UsuarioRepository repository;
-	
-	public UsuarioService() {
+
+	@Autowired
+	public UsuarioService(UsuarioRepository repository) {
+		this.repository = repository;
 	}
-	
-	
+
 	public boolean isLoginValido(Usuario usuario) {
-		Usuario usuarioLogado = repository.findByLogin(usuario.getLogin());
-		
-		if(usuarioLogado != null) {
-			if(usuarioLogado.getPassword().equals(usuario.getPassword())) {
-				return true;
-			}
-		}
-		
-		return false;
+        Usuario usuarioLogado = repository.findByLogin(usuario.getLogin());
+
+        return usuarioLogado != null && usuarioLogado.getPassword().equals(usuario.getPassword());
+
+    }
+
+	public Usuario save(Usuario s) {
+		return repository.save(s);
 	}
+
+
 
 }
