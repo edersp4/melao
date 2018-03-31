@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
@@ -22,9 +24,11 @@ public class UsuarioRepositoryTest {
 
     @Test
     public void findByLogin() {
-        Usuario teste = usuarioRepository.findByLogin("teste");
+        List<Usuario> teste = usuarioRepository.findAll();
 
-        assertThat(teste, nullValue());
+        teste.forEach(f -> f.getLogin());
+
+//        assertThat(teste, nullValue());
 
     }
 }
