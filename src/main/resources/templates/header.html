@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Cadastro de Segurado</title>
-<link th:href="@{../../bootstrap/css/bootstrap.min.css}" th:rel="stylesheet" />
-<link th:href="@{../../css/estilo.css}" th:rel="stylesheet" />
-<link th:href="@{../../css/typeaheadjs.css}" th:rel="stylesheet" />
-<link th:rel="stylesheet" th:href="@{../../font-awesome/css/font-awesome.css}"/>
-<link rel="stylesheet prefetch" th:href="@{http://fonts.googleapis.com/css?family=Open+Sans:600}"/>
+	<meta charset="UTF-8" />
+	<title>Cadastro de Segurado</title>
+	<link th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" th:rel="stylesheet" />
+	<link th:href="@{../../css/estilo.css}" th:rel="stylesheet" />
+	<link th:href="@{../../css/typeaheadjs.css}" th:rel="stylesheet" />
+	<link th:rel="stylesheet" th:href="@{../../font-awesome/css/font-awesome.css}"/>
+	<link rel="stylesheet prefetch" th:href="@{http://fonts.googleapis.com/css?family=Open+Sans:600}"/>
 
-<script th:src="@{../../js/jquery-2.2.4.min.js}"></script>
-<script th:src="@{../../js/jquery-ui.min.js}"></script>
-<script th:src="@{../../bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{../../js/segurado/segurado-script.js}"></script>
-<script th:src="@{../../js/item/item-seguro-script.js}"></script>
-<script th:src="@{../../js/jquery-mask.js}"></script>
-<script th:src="@{../../js/item/typeahead.jquery.js}"></script>
+	<script th:src="@{../../js/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{../../js/jquery-ui.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+	<script th:src="@{../../js/segurado/segurado-script.js}"></script>
+	<script th:src="@{../../js/item/item-seguro-script.js}"></script>
+	<script th:src="@{../../js/jquery-mask.js}"></script>
+	<script th:src="@{../../js/item/typeahead.jquery.js}"></script>
 
 <style type="text/css">
 .espacoHorizontal>li>a{
@@ -29,38 +29,58 @@
 </head>
 <body>
 
-<header> 
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp;Segurado <b class="caret"></b></a>
-				<ul class="dropdown-menu espacoHorizontal">
-                  <li><a href="#" th:href="@{/segurado/cadastro-segurado}"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Cadastro do Segurado</a></li>
-                  <li><a href="#" th:href="@{/segurado/consulta-segurado}"><i class="glyphicon glyphicon-search" aria-hidden="true"></i> &nbsp;Consultar Segurado</a></li>
-                </ul>
-			</li>
+<header>
 
-			<li class="dropdown" >
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i> &nbsp;Item Seguro <b class="caret"></b></a>
-				<ul class="dropdown-menu espacoHorizontal">
-                  <li><a href="#" th:href="@{/item/cadastro-seguroAutomovel}"> <i class="fa fa-car" aria-hidden="true"></i> &nbsp;Seguro de Automóvel </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroResidencial}"> <i class="fa fa-home" aria-hidden="true"></i> &nbsp;Seguro de Residência </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroEmpresarial}"> <i class="fa fa-industry" aria-hidden="true"></i> &nbsp;Seguro Empresarial </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroVida}"> <i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Seguro Vida </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroAluguel}"> <i class="fa fa-bed" aria-hidden="true"></i> &nbsp;Seguro de Aluguel </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroPrevidencia}"> <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp;Seguro de Previdência </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroConsorcio}"> <i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Seguro de Consórcio </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroEquipamento}"> <i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Seguro de Equipamento </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroCondominio}"> <i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;Seguro de Condomínio </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroOdontologico}"> <img src="../../img/icone/molar-pequeno.png" alt="" /> &nbsp;Seguro de Odontologico </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroFinanciamento}"> <i class="fa fa-money" aria-hidden="true"></i> &nbsp;Seguro de Financiamento </a></li>
-                  <li><a href="#" th:href="@{/item/cadastro-seguroRastreador}"> <i class="fa fa-search-plus" aria-hidden="true"></i> &nbsp;Seguro de Rastreador </a></li>
-                </ul>
-			</li>
-		</ul>
-		<ul class="pull-right" style="margin-top:12px;margin-right:12px">
-			<span><img alt="logout" th:src="@{../../img/brand-nav.png}" width="22px" height="22px" /></span>
-		</ul>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #39436d">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Itens de Seguros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroAutomovel}"> <i class="fa fa-car" aria-hidden="true"></i> &nbsp;Seguro de Automóvel </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroResidencial}"> <i class="fa fa-home" aria-hidden="true"></i> &nbsp;Seguro de Residência </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroEmpresarial}"> <i class="fa fa-industry" aria-hidden="true"></i> &nbsp;Seguro Empresarial </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroVida}"> <i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Seguro Vida </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroAluguel}"> <i class="fa fa-bed" aria-hidden="true"></i> &nbsp;Seguro de Aluguel </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroPrevidencia}"> <i class="fa fa-heartbeat" aria-hidden="true"></i> &nbsp;Seguro de Previdência </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroConsorcio}"> <i class="fa fa-usd" aria-hidden="true"></i> &nbsp;Seguro de Consórcio </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroEquipamento}"> <i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Seguro de Equipamento </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroCondominio}"> <i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;Seguro de Condomínio </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroOdontologico}"> <img src="../../img/icone/molar-pequeno.png" alt="" /> &nbsp;Seguro de Odontologico </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroFinanciamento}"> <i class="fa fa-money" aria-hidden="true"></i> &nbsp;Seguro de Financiamento </a>
+                        <a class="dropdown-item" href="#" th:href="@{/item/cadastro-seguroRastreador}"> <i class="fa fa-search-plus" aria-hidden="true"></i> &nbsp;Seguro de Rastreador </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbar" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Segurado
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbar">
+                        <a class="dropdown-item"  href="#" th:href="@{/segurado/cadastro-segurado}"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> &nbsp;Cadastro do Segurado</a>
+                        <a class="dropdown-item"  href="#" th:href="@{/segurado/consulta-segurado}"><i class="glyphicon glyphicon-search" aria-hidden="true"></i> &nbsp;Consultar Segurado</a>
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-brand pull-right" style="margin-top:12px;margin-right:12px">
+                <span><img alt="logout" th:src="@{../../img/brand-nav.png}" width="22px" height="22px" /></span>
+            </ul>
+        </div>
+    </nav>
+
+
+
 	</nav>
 </header>
 <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">

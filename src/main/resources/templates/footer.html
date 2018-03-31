@@ -41,9 +41,12 @@
   var seguradoData = [];
 
   var seguradosList = [[${listaSegurado}]]
-  for (i = 0; i < seguradosList.length; i++) {
-	  seguradoData.push(seguradosList[i]);
-  }
+	if(seguradosList != null || seguradosList != undefined){
+	  for (i = 0; i < seguradosList.length; i++) {
+		  seguradoData.push(seguradosList[i]);
+	  }
+
+	}
 
   
 
