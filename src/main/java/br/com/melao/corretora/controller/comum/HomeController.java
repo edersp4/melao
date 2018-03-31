@@ -12,20 +12,24 @@ import br.com.melao.corretora.service.comum.UsuarioService;
 
 @Controller
 public class HomeController {
-	
-	@Autowired
-	private UsuarioService service;
-	
-	@RequestMapping("/")
+
+    private UsuarioService service;
+
+    HomeController controller;
+
+    @Autowired
+    public HomeController(UsuarioService service) {
+        this.service = service;
+    }
+
+    @RequestMapping("/")
 	public ModelAndView index(Usuario usuario) {
-		ModelAndView mv = new ModelAndView("/home/index");
-		return mv;
+        return new ModelAndView("/home/index");
 	}
 	
 	@RequestMapping("/home/home")
 	public ModelAndView home() {
-		ModelAndView view = new ModelAndView("/home/home");
-		return view;
+        return new ModelAndView("/home/home");
 	}
 	
 	@RequestMapping("/home")
