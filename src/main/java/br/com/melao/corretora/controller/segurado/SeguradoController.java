@@ -21,11 +21,14 @@ import br.com.melao.corretora.service.segurado.SeguradoService;
 @RequestMapping("/segurado")
 public class SeguradoController {
 	
-	@Autowired
 	private SeguradoService seguradoService;
-	
-	
-	
+
+
+	@Autowired
+	public SeguradoController(SeguradoService seguradoService) {
+		this.seguradoService = seguradoService;
+	}
+
 	@RequestMapping(value="/cadastro-segurado" , method=RequestMethod.GET)
 	public ModelAndView cadastroSegurado(Segurado segurado) {
 		ModelAndView view = new ModelAndView("segurado/cadastro-segurado");

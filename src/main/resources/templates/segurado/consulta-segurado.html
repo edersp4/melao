@@ -48,7 +48,7 @@
 			</div>
 		</form>
 	
-	<div th:if="${listaSegurados ne null and not listaSegurados.empty}">
+	<div th:if="${listaSegurados ne null and not #lists.isEmpty(listaSegurados)}">
 		<br />
 		<br />
 	<table class="table table-hover" id="tab-segurado" >
@@ -66,8 +66,8 @@
 			<td><span th:text="${segurado.cpf}"></span></td>
 			<td><span th:text="${segurado.telefone}"></span></td>
 			<td><span th:text="${segurado.cep}"></span></td>
-			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}"><i class="glyphicon glyphicon-pencil" aria-hidden="true" data-toggle="tooltip" title="Editar Segurado "></i></a></td>
-			<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}"><i class="glyphicon glyphicon-paste" aria-hidden="true" data-toggle="tooltip" title="Detalhes do Segurado"></i></a></td>
+			<td><a href="#" th:href="@{/segurado/alterarSegurado(id=${segurado.id})}"><i class="fa fa-edit" aria-hidden="true" data-toggle="tooltip" title="Editar Segurado "></i></a></td>
+			<td><a href="#" th:href="@{/segurado/visualizar(id=${segurado.id})}"><i class="fa fa-clipboard" aria-hidden="true" data-toggle="tooltip" title="Detalhes do Segurado"></i></a></td>
 			
 		</tr>
 	</table>

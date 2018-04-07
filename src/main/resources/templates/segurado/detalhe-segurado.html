@@ -24,7 +24,7 @@
 						<a href="#"	th:href="@{/segurado/cadastrar-item(id=${segurado.id})}" class="btn btn-success">Cadastrar Seguro</a>
 					</div>
 				</form>
-				<div th:if="${!listaItemSeguro.empty}">
+				<div th:if="${not #lists.isEmpty(listaItemSeguro)}">
 					 <br />
 				
 					<table class="table table-hover" id="tab-segurado">
