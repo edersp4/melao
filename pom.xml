@@ -84,13 +84,6 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.0.0-2</version>
 		</dependency>
-		<dependency>
-			<groupId>com.builder.buildermaster</groupId>
-			<artifactId>buildermaster</artifactId>
-			<version>buildermaster</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/builderMaster.jar</systemPath>
-		</dependency>
 
 	</dependencies>
 
