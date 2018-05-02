@@ -29,7 +29,7 @@ public class HomeControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.view().name("/home/index"));
+                .andExpect(MockMvcResultMatchers.view().name("index"));
     }
 
     @Test
