@@ -2,7 +2,9 @@ package br.com.melao.corretora.model.segurado;
 
 import br.com.melao.corretora.model.comum.Endereco;
 import br.com.melao.corretora.model.item.ItemSeguro;
-import lombok.*;
+import lombok.Data;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -19,21 +21,21 @@ public class Segurado {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@javax.validation.constraints.NotBlank
+	@NotBlank
 	private String nome;
 	
-	@javax.validation.constraints.NotBlank
+	@NotBlank
 	@CPF
 	private String cpf;
 
-	@javax.validation.constraints.NotBlank
+	@NotBlank
 	private String telefone;
 	
 	private String celular;
 	
 	private String telefoneTrab;
 	
-	@javax.validation.constraints.Email
+	@Email
 	private String email;
 	
 	@Column(insertable = false, updatable = false)

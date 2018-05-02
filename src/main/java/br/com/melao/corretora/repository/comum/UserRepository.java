@@ -1,12 +1,11 @@
 package br.com.melao.corretora.repository.comum;
 
+import br.com.melao.corretora.model.comum.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.melao.corretora.model.comum.Usuario;
-
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{
 
-	public Usuario findByLogin(String login);
+    User findByUsername(String name);
 }

@@ -2,6 +2,7 @@ package br.com.melao.corretora;
 
 import java.util.Locale;
 
+import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -30,5 +31,11 @@ public class MelaoCorretorasApplication {
 	@Bean
 	public LocaleResolver localeResolver() {
 		return new FixedLocaleResolver(new Locale("pt", "BR"));
+	}
+
+	@Bean
+	public StrongPasswordEncryptor strongPasswordEncryptor() {
+		StrongPasswordEncryptor strongPasswordEncryptor = new StrongPasswordEncryptor();
+		return strongPasswordEncryptor;
 	}
 }

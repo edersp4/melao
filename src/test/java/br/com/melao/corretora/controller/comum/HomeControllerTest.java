@@ -1,6 +1,6 @@
 package br.com.melao.corretora.controller.comum;
 
-import br.com.melao.corretora.service.comum.UsuarioService;
+import br.com.melao.corretora.service.comum.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -14,7 +14,7 @@ public class HomeControllerTest {
 
 
     @Mock
-    private UsuarioService service;
+    private UserService service;
 
     private HomeController controller;
 
