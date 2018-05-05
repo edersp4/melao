@@ -35,7 +35,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
     public void loadUsers(){
         User user1 = new User();
         user1.setUsername("ed");
-        user1.setPassword("1234");
+        user1.setPassword("melao@123");
 
         userService.save(user1);
 
@@ -45,6 +45,12 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         user2.setPassword("navio");
 
         userService.save(user2);
+
+        User user3 = new User();
+        user3.setUsername("kelly");
+        user3.setPassword("melao@123");
+
+        userService.save(user3);
     }
 
     public void loadRoles(){

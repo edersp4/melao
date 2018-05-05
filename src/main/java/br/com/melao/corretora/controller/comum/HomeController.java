@@ -34,5 +34,10 @@ public class HomeController {
     public String notAuth(){
         return "access_denied";
     }
-	
+
+    @RequestMapping("home")
+    public String home(){
+        return "home";
+    }
+
 }
