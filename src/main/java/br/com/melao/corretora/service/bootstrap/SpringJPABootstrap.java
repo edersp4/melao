@@ -19,6 +19,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
     RoleService roleService;
 
 
+
     @Autowired
     public SpringJPABootstrap(UserService userService , RoleService roleService) {
         this.userService = userService;
@@ -30,6 +31,11 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         loadUsers();
         loadRoles();
         loadAssignUsersToDefaultRole();
+        loadSeguradora();
+    }
+
+    public void loadSeguradora() {
+
     }
 
     public void loadUsers(){
